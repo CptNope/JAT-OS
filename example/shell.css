@@ -376,3 +376,45 @@
 .switcher-open { flex: 1; display: flex; align-items: center; gap: var(--space-3); min-height: 48px; padding: 0 8px; border: 0; background: none; font-weight: var(--weight-semibold); text-align: left; }
 .am-row .jat-apptile { flex: none; }
 @media (max-width: 760px) { .app-settings { grid-template-columns: 1fr; grid-template-rows: auto 1fr; } .set-nav { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--divider); } }
+
+
+/* Curated desktop: compact, readable shortcuts without flooding the wallpaper. */
+.desktop{grid-auto-flow:row;grid-template-columns:repeat(auto-fill,88px);grid-auto-rows:93px;align-content:start;justify-content:start;gap:9px 12px;padding:clamp(16px,2.5vw,30px);padding-top:calc(var(--topbar-height) + 18px);padding-bottom:calc(var(--bottombar-height) + 18px);overflow:hidden}
+[data-shell="dock"] .desktop{justify-content:start;padding-bottom:96px}
+.desktop .jat-desk-icon{width:88px;height:93px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:7px;padding:9px 4px 5px;border-radius:10px;overflow:hidden}
+.desktop .jat-desk-icon img{width:46px;height:46px;min-height:46px;border-radius:11px;filter:drop-shadow(0 2px 5px rgb(0 0 0 / .18))}
+.desktop .jat-desk-icon span{width:100%;font-size:11px;line-height:1.25;font-weight:550;letter-spacing:-.008em;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;overflow-wrap:normal;text-overflow:ellipsis}
+.desktop .jat-desk-icon:hover{background:rgb(255 255 255 / .14)}
+.desktop .jat-desk-icon:focus-visible{outline:2px solid #fff;outline-offset:1px}
+@media(max-width:1000px){.desktop{grid-template-columns:repeat(auto-fill,82px);grid-auto-rows:88px;gap:5px 7px;padding-left:14px}.desktop .jat-desk-icon{width:82px;height:88px}}
+/* Taskbar Start: a more purposeful, roomy launcher with pinned + recommended sections. */
+[data-shell="taskbar"] .launcher.start-menu{width:min(650px,calc(100% - 24px));max-height:min(745px,calc(100% - 78px));padding:0;gap:0;overflow:hidden;border:1px solid var(--border-default);border-radius:18px;background:var(--surface-raised);box-shadow:0 20px 72px rgb(0 0 0 / .32)}
+.start-header{padding:22px 32px 8px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.start-brand{display:flex;align-items:center;gap:12px}.start-brand>div{display:grid;gap:2px}.start-brand strong{font-size:16px;letter-spacing:-.025em}.start-brand small,.start-muted{font-size:11px;color:var(--text-secondary)}
+.start-header-tag{font-size:10px;letter-spacing:.15em;color:var(--text-tertiary);font-weight:700}
+.start-search{margin:16px 32px 12px}.start-search-input{height:44px;width:100%;border-radius:10px;border:1px solid var(--border-default);border-bottom:2px solid var(--accent);background:var(--surface-1);padding-left:40px;font-size:13px}
+.start-scroll{min-height:0;flex:1;overflow:auto;padding:4px 32px 25px;scrollbar-width:thin}
+.start-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:15px 0 12px}
+.start-section-head h2{font-size:13px;font-weight:700;margin:0;color:var(--text-primary)}
+.start-second-section{margin-top:24px}
+.start-text-button{border:1px solid var(--border-default);background:var(--surface-2);color:var(--text-secondary);border-radius:7px;display:flex;align-items:center;gap:5px;padding:6px 9px;font-size:11px;cursor:pointer}
+.start-text-button:hover{background:var(--surface-3);color:var(--text-primary)}
+.start-pinned-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px 4px}
+.start-app{display:flex;align-items:center;flex-direction:column;gap:7px;padding:10px 3px 8px;min-height:84px;background:transparent;border:1px solid transparent;border-radius:10px;color:var(--text-primary);cursor:pointer}
+.start-app:hover,.start-app:focus-visible{background:var(--surface-3)}
+.start-app span{max-width:100%;font-size:11px;font-weight:550;line-height:1.25;text-align:center;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;overflow-wrap:anywhere}
+.start-recommended,.start-all-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 12px}
+.start-all-list{grid-template-columns:1fr}
+.start-app-row{display:flex;align-items:center;gap:12px;text-align:left;min-width:0;padding:8px;background:transparent;border:1px solid transparent;border-radius:10px;color:var(--text-primary);cursor:pointer}
+.start-app-row:hover,.start-app-row:focus-visible{background:var(--surface-3)}
+.start-app-row .start-app-text{display:grid;gap:3px;flex:1;min-width:0}
+.start-app-row strong{font-size:12px;font-weight:650;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.start-app-row small{font-size:11px;color:var(--text-secondary);text-transform:capitalize}
+.start-app-row .jat-icon{color:var(--text-tertiary)}
+.start-empty{color:var(--text-secondary);padding:24px 8px;font-size:13px}
+.start-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 32px;min-height:70px;background:var(--surface-2);border-top:1px solid var(--divider);border-radius:0 0 18px 18px}
+.start-profile{display:flex;align-items:center;gap:11px}.start-profile>div{display:grid;gap:2px}.start-profile strong{font-size:12px}.start-profile small{font-size:11px;color:var(--text-secondary)}
+.start-footer-actions{display:flex;gap:7px}.start-footer-button{width:36px;height:36px;border:0;border-radius:9px;background:transparent;display:grid;place-items:center;color:var(--text-primary);cursor:pointer}
+.start-footer-button:hover{background:var(--surface-3)}
+[data-shell="taskbar"] .bar-app--start[data-expanded="true"]{background:var(--surface-3)}
+@media(max-width:700px){[data-shell="taskbar"] .launcher.start-menu{width:calc(100% - 16px);max-height:calc(100% - 80px)}.start-header{padding:16px 18px 4px}.start-search{margin:12px 18px}.start-scroll{padding:4px 18px 16px}.start-pinned-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.start-recommended{grid-template-columns:1fr}.start-footer{padding:10px 18px}}
