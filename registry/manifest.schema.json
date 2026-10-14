@@ -66,7 +66,10 @@
         "utilities",
         "ai",
         "system",
-        "wordpress"
+        "wordpress",
+        "arcade",
+        "exploration",
+        "research"
       ]
     },
     "launch": {
