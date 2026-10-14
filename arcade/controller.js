@@ -87,7 +87,7 @@
     let last='';
     const report=()=>{
       const el=document.querySelector(selector);if(!el)return;
-      const value=(el.textContent||'').trim();if(value===last)return;last=value;
+      const value=(el.textContent||'').trim();const state=value+'|'+(document.querySelector('#status')?.textContent||'')+'|'+(document.querySelector('#pairs')?.textContent||'');if(state===last)return;last=state;
       let store;try{store=JSON.parse(localStorage.getItem(scoresKey)||'{}')}catch{store={}}
       if(id==='2048'||id==='snake'||id==='breakout'||id==='block-stack'||id==='pong'){
         const num=Number(value);if(!Number.isFinite(num))return;
