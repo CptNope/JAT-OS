@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cptnope.github.io/JAT-OS/registry/manifest.schema.json",
+  "title": "JAT OS App Manifest v1",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "launch",
+    "icon",
+    "publisher"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(\\.[a-z0-9-]+)+$",
+      "description": "Reverse-domain application ID. Stable forever; never reused."
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 40,
+      "description": "Display name shown in title bars, launcher, dock."
+    },
+    "shortName": {
+      "type": "string",
+      "maxLength": 16,
+      "description": "Used under icons and on phones where name truncates."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "SemVer of the app. null when the app does not declare one."
+    },
+    "icon": {
+      "type": "object",
+      "required": [
+        "src"
+      ],
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "maskable": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string",
+          "description": "Identity colour of the app tile."
+        }
+      }
+    },
+    "category": {
+      "enum": [
+        "graphics",
+        "design",
+        "documents",
+        "development",
+        "media",
+        "productivity",
+        "utilities",
+        "ai",
+        "system",
+        "wordpress"
+      ]
+    },
+    "launch": {
+      "type": "object",
+      "required": [
+        "url",
+        "mode"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mode": {
+          "enum": [
+            "embedded",
+            "external",
+            "integrated"
+          ],
+          "description": "embedded = sandboxed iframe window; external = new browser tab / installed PWA; integrated = iframe plus the JAT bridge."
+        },
+        "fallback": {
+          "enum": [
+            "external",
+            "none"
+          ],
+          "description": "What the OS offers when embedding is refused or fails to load."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The app's own navigation scope; links outside it open externally."
+        }
+      }
+    },
+    "window": {
+      "type": "object",
+      "properties": {
+        "minWidth": {
+          "type": "integer",
+          "minimum": 320
+        },
+        "minHeight": {
+          "type": "integer",
+          "minimum": 240
+        },
+        "preferredWidth": {
+          "type": "integer"
+        },
+        "preferredHeight": {
+          "type": "integer"
+        },
+        "resizable": {
+          "type": "boolean"
+        },
+        "appThemeColor": {
+          "type": "string"
+        }
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "notifications",
+          "clipboard-read",
+          "clipboard-write",
+          "fullscreen",
+          "files.read",
+          "files.write",
+          "user.profile",
+          "storage.persistent"
+        ]
+      },
+      "description": "Requested through the bridge only; the OS grants per user and app. Embedded apps never inherit OS permissions."
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "offline": {
+          "enum": [
+            "none",
+            "app-managed"
+          ],
+          "description": "app-managed = the app's own service worker, in its own scope. The OS never controls it."
+        },
+        "serviceWorkerScope": {
+          "type": "string"
+        },
+        "bridge": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Bridge protocol version the app speaks, e.g. jat-bridge/1. null = none."
+        },
+        "pointer": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "mouse",
+              "touch",
+              "pen"
+            ]
+          }
+        },
+        "pen": {
+          "enum": [
+            "supported",
+            "unverified",
+            "unsupported"
+          ]
+        }
+      }
+    },
+    "integration": {
+      "type": "object",
+      "properties": {
+        "bridgeVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "publisher": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}

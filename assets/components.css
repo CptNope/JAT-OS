@@ -1,0 +1,277 @@
+/* JAT OS component library — classes are prefixed `jat-`.
+   Depends on tokens.css. Shared by the OS shell (inside its shadow root), the brand book and the overview. */
+
+/* ---------- Base ---------- */
+.jat, .jat *, .jat *::before, .jat *::after { box-sizing: border-box; }
+.jat {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+.jat ::selection { background: var(--selection-bg); color: inherit; }
+.jat :focus { outline: none; }
+.jat :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.jat .num, .jat time, .jat td.num { font-variant-numeric: tabular-nums; }
+.jat code, .jat kbd, .jat .mono { font-family: var(--font-mono); font-size: 0.92em; }
+.jat kbd {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.6em; height: 1.6em; padding: 0 0.35em;
+  border: 1px solid var(--border-default); border-bottom-width: 2px; border-radius: var(--radius-xs);
+  background: var(--surface-1); color: var(--text-secondary); font-size: var(--text-2xs);
+}
+:where(.jat a:not(.jat-btn, .jat-iconbtn)) { color: var(--text-link); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+:where(.jat a:not(.jat-btn, .jat-iconbtn):hover) { text-decoration-thickness: 2px; }
+
+/* Scrollbars (thin, themed, overlay-like) */
+.jat * { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+.jat *::-webkit-scrollbar { width: 10px; height: 10px; }
+.jat *::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; border: 3px solid transparent; background-clip: padding-box; }
+.jat *::-webkit-scrollbar-thumb:hover { background-color: var(--text-tertiary); }
+.jat *::-webkit-scrollbar-track { background: transparent; }
+
+.jat-icon { width: var(--size-icon-md); height: var(--size-icon-md); flex: none; display: inline-block; vertical-align: middle; }
+.jat-icon--sm { width: var(--size-icon-sm); height: var(--size-icon-sm); }
+.jat-icon--lg { width: var(--size-icon-lg); height: var(--size-icon-lg); }
+.jat-visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- Buttons ---------- */
+.jat-btn {
+  --btn-bg: var(--surface-1); --btn-fg: var(--text-primary); --btn-border: var(--border-default);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  height: var(--size-control-md); padding: 0 var(--space-3);
+  border: 1px solid var(--btn-border); border-radius: var(--radius-md);
+  background: var(--btn-bg); color: var(--btn-fg);
+  font: inherit; font-weight: var(--weight-medium); white-space: nowrap; cursor: default;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--dur-instant) linear, border-color var(--dur-instant) linear, transform var(--dur-instant) var(--ease-out);
+  user-select: none;
+}
+.jat-btn:hover { --btn-bg: var(--surface-3); }
+.jat-btn:active { transform: translateY(0.5px); --btn-bg: var(--surface-3); box-shadow: none; }
+.jat-btn[disabled], .jat-btn[aria-disabled="true"] { opacity: 0.45; pointer-events: none; box-shadow: none; }
+.jat-btn--primary { --btn-bg: var(--accent); --btn-fg: var(--text-on-accent); --btn-border: transparent; }
+.jat-btn--primary:hover { --btn-bg: var(--accent-hover); }
+.jat-btn--primary:active { --btn-bg: var(--accent-pressed); }
+.jat-btn--ghost { --btn-bg: transparent; --btn-border: transparent; box-shadow: none; }
+.jat-btn--ghost:hover { --btn-bg: var(--surface-3); }
+.jat-btn--danger { --btn-bg: var(--surface-1); --btn-fg: var(--danger); }
+.jat-btn--danger:hover { --btn-bg: var(--danger-soft); }
+.jat-btn--sm { height: var(--size-control-sm); padding: 0 var(--space-2); font-size: var(--text-xs); border-radius: var(--radius-sm); }
+.jat-btn--lg { height: var(--size-control-lg); padding: 0 var(--space-4); font-size: var(--text-md); }
+.jat-btn[aria-busy="true"] { color: transparent; position: relative; }
+.jat-btn[aria-busy="true"]::after { content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--btn-fg); border-right-color: transparent; animation: jat-spin 0.8s linear infinite; }
+.jat-iconbtn {
+  display: inline-grid; place-items: center; width: var(--size-control-md); height: var(--size-control-md);
+  border: 0; border-radius: var(--radius-md); background: transparent; color: var(--text-secondary); cursor: default;
+  transition: background var(--dur-instant) linear, color var(--dur-instant) linear;
+}
+.jat-iconbtn:hover { background: var(--surface-3); color: var(--text-primary); }
+.jat-iconbtn[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-soft-text); }
+.jat-iconbtn--sm { width: var(--size-control-sm); height: var(--size-control-sm); border-radius: var(--radius-sm); }
+
+@media (pointer: coarse) {
+  .jat-btn { height: var(--size-touch); padding: 0 var(--space-4); }
+  .jat-iconbtn { width: var(--size-touch); height: var(--size-touch); }
+}
+
+/* ---------- Form controls ---------- */
+.jat-field { display: grid; gap: var(--space-1); }
+.jat-field__label { font-weight: var(--weight-medium); color: var(--text-primary); }
+.jat-field__hint { font-size: var(--text-xs); color: var(--text-secondary); }
+.jat-field__error { font-size: var(--text-xs); color: var(--danger); display: flex; gap: var(--space-1); align-items: center; }
+.jat-input, .jat-select {
+  height: var(--size-control-md); width: 100%; padding: 0 var(--space-3);
+  border: 1px solid var(--border-default); border-radius: var(--radius-md);
+  background: var(--surface-1); color: var(--text-primary); font: inherit;
+  transition: border-color var(--dur-instant) linear, box-shadow var(--dur-instant) linear;
+}
+.jat-input::placeholder { color: var(--text-tertiary); }
+.jat-input:hover, .jat-select:hover { border-color: var(--border-strong); }
+.jat-input:focus-visible, .jat-select:focus-visible { outline: none; border-color: var(--focus-ring); box-shadow: 0 0 0 3px var(--selection-bg); }
+.jat-input[aria-invalid="true"] { border-color: var(--danger); }
+.jat-input:disabled { background: var(--surface-2); color: var(--text-disabled); }
+.jat-select { appearance: none; padding-right: var(--space-8);
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%), linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+.jat-search { position: relative; display: flex; align-items: center; }
+.jat-search .jat-icon { position: absolute; left: 10px; color: var(--text-tertiary); pointer-events: none; }
+.jat-search .jat-input { padding-left: 34px; }
+
+.jat-check { display: inline-flex; align-items: center; gap: var(--space-2); cursor: default; }
+.jat-check input { appearance: none; margin: 0; width: 16px; height: 16px; border: 1.5px solid var(--border-strong); border-radius: var(--radius-xs); background: var(--surface-1); display: grid; place-items: center; transition: background var(--dur-instant) linear; }
+.jat-check input[type="radio"] { border-radius: 50%; }
+.jat-check input:checked { background: var(--accent); border-color: var(--accent); }
+.jat-check input[type="checkbox"]:checked::after { content: ""; width: 9px; height: 5px; border: 2px solid #fff; border-top: 0; border-right: 0; transform: translateY(-1px) rotate(-45deg); }
+.jat-check input[type="radio"]:checked::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+.jat-check input:disabled { opacity: 0.45; }
+
+.jat-switch { appearance: none; margin: 0; position: relative; width: 36px; height: 20px; flex: none; border-radius: var(--radius-full); background: var(--border-strong); transition: background var(--dur-fast) var(--ease-standard); cursor: default; }
+.jat-switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: var(--shadow-sm); transition: transform var(--dur-fast) var(--ease-out); }
+.jat-switch:checked { background: var(--accent); }
+.jat-switch:checked::after { transform: translateX(16px); }
+.jat-switch:disabled { opacity: 0.45; }
+
+.jat-segmented { display: inline-flex; padding: 2px; gap: 2px; border-radius: var(--radius-md); background: var(--surface-3); }
+.jat-segmented button { height: 28px; padding: 0 var(--space-3); border: 0; border-radius: calc(var(--radius-md) - 2px); background: transparent; color: var(--text-secondary); font: inherit; font-weight: var(--weight-medium); display: inline-flex; align-items: center; gap: var(--space-2); cursor: default; }
+.jat-segmented button[aria-pressed="true"], .jat-segmented button[aria-checked="true"] { background: var(--surface-1); color: var(--text-primary); box-shadow: var(--shadow-sm); }
+
+/* ---------- Tabs ---------- */
+.jat-tabs { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--divider); }
+.jat-tab { position: relative; height: 36px; padding: 0 var(--space-3); border: 0; background: none; color: var(--text-secondary); font: inherit; font-weight: var(--weight-medium); cursor: default; }
+.jat-tab:hover { color: var(--text-primary); }
+.jat-tab[aria-selected="true"] { color: var(--text-primary); }
+.jat-tab[aria-selected="true"]::after { content: ""; position: absolute; left: var(--space-3); right: var(--space-3); bottom: -1px; height: 2px; border-radius: 2px; background: var(--accent); }
+
+/* ---------- Menus, popovers, tooltips ---------- */
+.jat-menu {
+  min-width: 220px; padding: var(--space-1); border-radius: var(--menu-radius, var(--radius-md));
+  background: var(--surface-raised); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);
+  display: grid; gap: 1px;
+}
+.jat-menu__item {
+  display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: var(--space-2);
+  min-height: 28px; padding: 0 var(--space-2); border: 0; border-radius: calc(var(--menu-radius, 8px) - 3px);
+  background: none; color: var(--text-primary); font: inherit; text-align: left; cursor: default;
+}
+.jat-menu__item:hover, .jat-menu__item:focus-visible, .jat-menu__item[data-active] { background: var(--accent); color: var(--text-on-accent); outline: none; }
+.jat-menu__item:hover .jat-menu__hint, .jat-menu__item:focus-visible .jat-menu__hint { color: inherit; opacity: 0.85; }
+.jat-menu__item[aria-disabled="true"] { color: var(--text-disabled); pointer-events: none; }
+.jat-menu__item--danger { color: var(--danger); }
+.jat-menu__hint { color: var(--text-tertiary); font-size: var(--text-xs); }
+.jat-menu__sep { height: 1px; margin: var(--space-1) var(--space-2); background: var(--divider); }
+.jat-menu__label { padding: var(--space-1) var(--space-2); font-size: var(--text-xs); font-weight: var(--weight-semibold); color: var(--text-tertiary); }
+@media (pointer: coarse) { .jat-menu__item { min-height: var(--size-touch); } }
+
+.jat-popover { padding: var(--space-4); border-radius: var(--panel-radius, var(--radius-lg)); background: var(--surface-raised); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg); }
+.jat-tooltip { padding: 4px 8px; border-radius: var(--radius-sm); background: var(--ref-slate-800); color: #fff; font-size: var(--text-xs); font-weight: var(--weight-medium); box-shadow: var(--shadow-md); white-space: nowrap; pointer-events: none; }
+
+/* ---------- Notifications / toasts ---------- */
+.jat-toast {
+  display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-3); align-items: start;
+  width: min(360px, calc(100vw - 32px)); padding: var(--space-3); border-radius: var(--panel-radius, var(--radius-lg));
+  background: var(--surface-raised); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);
+}
+.jat-toast__icon { width: 32px; height: 32px; border-radius: 8px; }
+.jat-toast__title { font-weight: var(--weight-semibold); }
+.jat-toast__body { color: var(--text-secondary); }
+.jat-toast__meta { color: var(--text-tertiary); font-size: var(--text-xs); }
+
+/* ---------- Dialog ---------- */
+.jat-dialog { width: min(420px, calc(100vw - 32px)); padding: var(--space-6); border-radius: var(--panel-radius, var(--radius-xl)); background: var(--surface-raised); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-window); display: grid; gap: var(--space-4); }
+.jat-dialog__title { margin: 0; font-size: var(--text-lg); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-title); }
+.jat-dialog__body { margin: 0; color: var(--text-secondary); }
+.jat-dialog__actions { display: flex; justify-content: flex-end; gap: var(--space-2); }
+
+/* ---------- Progress & status ---------- */
+.jat-progress { height: 4px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.jat-progress > span { display: block; height: 100%; width: var(--value, 40%); background: var(--accent); border-radius: inherit; transition: width var(--dur-base) var(--ease-standard); }
+.jat-progress--indeterminate > span { width: 35%; animation: jat-indeterminate 1.3s var(--ease-standard) infinite; }
+.jat-spinner { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border-default); border-top-color: var(--accent); animation: jat-spin 0.8s linear infinite; }
+.jat-badge { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; border-radius: var(--radius-full); background: var(--surface-3); color: var(--text-secondary); font-size: var(--text-2xs); font-weight: var(--weight-semibold); letter-spacing: 0.01em; }
+.jat-badge--accent { background: var(--accent-soft); color: var(--accent-soft-text); }
+.jat-badge--success { background: var(--success-soft); color: var(--success); }
+.jat-badge--warning { background: var(--warning-soft); color: var(--warning); }
+.jat-badge--danger { background: var(--danger-soft); color: var(--danger); }
+.jat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-tertiary); display: inline-block; }
+.jat-dot--success { background: var(--success); } .jat-dot--warning { background: var(--warning); } .jat-dot--danger { background: var(--danger); } .jat-dot--accent { background: var(--accent); }
+@keyframes jat-spin { to { transform: rotate(360deg); } }
+@keyframes jat-indeterminate { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+/* ---------- Lists, settings rows, breadcrumbs, toolbar ---------- */
+.jat-group { border-radius: var(--radius-lg); background: var(--surface-1); border: 1px solid var(--border-subtle); overflow: hidden; }
+.jat-row { display: flex; align-items: center; gap: var(--space-3); min-height: 48px; padding: var(--space-2) var(--space-4); }
+.jat-row + .jat-row { border-top: 1px solid var(--divider); }
+.jat-row__text { flex: 1; min-width: 0; }
+.jat-row__title { font-weight: var(--weight-medium); }
+.jat-row__desc { color: var(--text-secondary); font-size: var(--text-xs); }
+.jat-crumbs { display: flex; align-items: center; gap: 2px; color: var(--text-secondary); min-width: 0; }
+.jat-crumbs button { border: 0; background: none; font: inherit; color: inherit; padding: 2px 6px; border-radius: var(--radius-sm); cursor: default; white-space: nowrap; }
+.jat-crumbs button:hover { background: var(--surface-3); color: var(--text-primary); }
+.jat-crumbs [aria-current="page"] { color: var(--text-primary); font-weight: var(--weight-medium); }
+.jat-toolbar { display: flex; align-items: center; gap: var(--space-1); min-height: 44px; padding: 0 var(--space-2); border-bottom: 1px solid var(--divider); background: var(--surface-2); }
+.jat-toolbar__spacer { flex: 1; }
+
+/* Property inspector */
+.jat-props { display: grid; grid-template-columns: minmax(90px, auto) 1fr; gap: var(--space-2) var(--space-3); align-items: center; font-size: var(--text-xs); }
+.jat-props dt { color: var(--text-secondary); }
+.jat-props dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+/* ---------- Empty, error, offline states ---------- */
+.jat-state { display: grid; justify-items: center; align-content: center; gap: var(--space-3); padding: var(--space-8) var(--space-6); text-align: center; color: var(--text-secondary); min-height: 220px; }
+.jat-state__icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--surface-3); color: var(--text-secondary); }
+.jat-state--error .jat-state__icon { background: var(--danger-soft); color: var(--danger); }
+.jat-state--warning .jat-state__icon { background: var(--warning-soft); color: var(--warning); }
+.jat-state__title { margin: 0; color: var(--text-primary); font-size: var(--text-lg); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-title); }
+.jat-state__body { margin: 0; max-width: 46ch; }
+.jat-state__actions { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center; margin-top: var(--space-1); }
+
+/* ---------- App tile, desktop icon, dock item, launcher item ---------- */
+.jat-apptile { width: var(--tile, 48px); height: var(--tile, 48px); display: block; border-radius: calc(var(--tile, 48px) * 0.2266); }
+.jat-desk-icon {
+  display: grid; justify-items: center; gap: 6px; width: 92px; padding: 8px 4px 6px;
+  border: 1px solid transparent; border-radius: var(--radius-md); background: none; font: inherit; cursor: default;
+  color: var(--desktop-label);
+}
+.jat-desk-icon img { --tile: 52px; }
+.jat-desk-icon span { font-size: var(--text-xs); font-weight: var(--weight-medium); line-height: 1.25; text-shadow: var(--desktop-label-shadow); text-align: center; overflow-wrap: anywhere; }
+.jat-desk-icon:hover { background: rgb(255 255 255 / 0.12); }
+.jat-desk-icon[aria-selected="true"] { background: var(--desktop-selection); border-color: var(--desktop-selection-border); }
+.jat-desk-icon[aria-selected="true"] span { background: var(--selection-fill); color: #fff; text-shadow: none; border-radius: 4px; padding: 0 4px; }
+
+.jat-launch-item { display: grid; justify-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-2); border: 0; border-radius: var(--radius-lg); background: none; color: var(--text-primary); font: inherit; cursor: default; }
+.jat-launch-item img { --tile: 56px; }
+.jat-launch-item span { font-size: var(--text-xs); font-weight: var(--weight-medium); text-align: center; }
+.jat-launch-item:hover, .jat-launch-item[data-active] { background: var(--surface-3); }
+
+.jat-result { display: grid; grid-template-columns: 32px 1fr auto; gap: var(--space-3); align-items: center; padding: 6px var(--space-2); border-radius: var(--radius-md); }
+.jat-result img { --tile: 32px; }
+.jat-result__title { font-weight: var(--weight-medium); }
+.jat-result__meta { color: var(--text-secondary); font-size: var(--text-xs); }
+.jat-result[data-active], .jat-result:hover { background: var(--accent-soft); }
+
+/* ---------- Window frame (shell styles change geometry through tokens) ---------- */
+.jat-window {
+  position: absolute; display: flex; flex-direction: column; min-width: 280px; min-height: 180px;
+  border-radius: var(--window-radius); background: var(--surface-0); box-shadow: var(--shadow-window-inactive); overflow: hidden;
+  transition: box-shadow var(--dur-fast) linear;
+}
+.jat-window[data-focused] { box-shadow: var(--shadow-window); }
+.jat-titlebar {
+  flex: none; display: flex; align-items: center; gap: var(--space-2); height: var(--titlebar-height); padding: 0 var(--space-2);
+  background: var(--chrome-titlebar); border-bottom: 1px solid var(--divider); user-select: none; touch-action: none;
+}
+.jat-window:not([data-focused]) .jat-titlebar { background: var(--chrome-titlebar-inactive); }
+.jat-window:not([data-focused]) .jat-titlebar__title { color: var(--text-tertiary); }
+.jat-titlebar__title { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-2); font-weight: var(--weight-semibold); font-size: var(--text-sm); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jat-titlebar__title img { --tile: 16px; border-radius: 4px; }
+.jat-titlebar__badge { font-weight: var(--weight-medium); }
+.jat-wincontrols { display: flex; align-items: center; gap: 2px; }
+.jat-winbtn { display: grid; place-items: center; width: 40px; height: calc(var(--titlebar-height) - 8px); border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--text-secondary); cursor: default; }
+.jat-winbtn:hover { background: var(--surface-3); color: var(--text-primary); }
+.jat-winbtn--close:hover { background: var(--window-close-hover); color: #fff; }
+.jat-winbtn .jat-icon { width: 16px; height: 16px; }
+/* circle-icon controls (Shelf, Activities) */
+[data-shell="shelf"] .jat-winbtn, [data-shell="activities"] .jat-winbtn { width: 28px; height: 28px; border-radius: 50%; }
+[data-shell="activities"] .jat-winbtn { background: var(--surface-3); }
+[data-shell="activities"] .jat-winbtn--close:hover { background: var(--surface-3); color: var(--text-primary); filter: brightness(0.94); }
+/* traffic-light controls (Dock): coloured circles, glyphs show on hover */
+[data-shell="dock"] .jat-wincontrols { gap: 8px; padding: 0 6px; }
+[data-shell="dock"] .jat-winbtn { width: 13px; height: 13px; border-radius: 50%; padding: 0; color: transparent; box-shadow: inset 0 0 0 0.5px rgb(0 0 0 / 0.18); }
+[data-shell="dock"] .jat-winbtn .jat-icon { width: 9px; height: 9px; stroke-width: 3; }
+[data-shell="dock"] .jat-winbtn--close { background: #ff5f57; }
+[data-shell="dock"] .jat-winbtn--min { background: #febc2e; }
+[data-shell="dock"] .jat-winbtn--max { background: #28c840; }
+[data-shell="dock"] .jat-wincontrols:hover .jat-winbtn, [data-shell="dock"] .jat-wincontrols:focus-within .jat-winbtn { color: rgb(0 0 0 / 0.55); }
+[data-shell="dock"] .jat-window:not([data-focused]) .jat-wincontrols:not(:hover) .jat-winbtn { background: var(--border-default); box-shadow: none; }
+[data-shell="dock"] .jat-titlebar__title { justify-content: center; }
+[data-shell="dock"] .jat-winbtn:hover { filter: brightness(0.92); }
+@media (pointer: coarse) {
+  [data-shell="dock"] .jat-wincontrols { gap: 14px; }
+  [data-shell="dock"] .jat-winbtn { width: 18px; height: 18px; }
+}
+.jat-window__body { position: relative; flex: 1; min-height: 0; overflow: auto; background: var(--surface-0); }
+.jat-window__body > iframe { display: block; width: 100%; height: 100%; border: 0; background: var(--surface-0); }

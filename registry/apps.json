@@ -1,0 +1,191 @@
+{
+  "$schema": "./manifest.schema.json",
+  "registryVersion": 1,
+  "note": "Demonstration registry for the JAT OS example. Descriptions are summaries from each app's name and should be confirmed by the app owner; versions are null because the apps do not declare one yet.",
+  "apps": [
+    {
+      "id": "com.jeremyandersontech.vectorcraft",
+      "name": "VectorCraft",
+      "shortName": "VectorCraft",
+      "description": "Vector illustration and path editing.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/vectorcraft.svg",
+        "color": "#7B4DFF"
+      },
+      "category": "graphics",
+      "launch": {
+        "url": "https://cptnope.github.io/vectorcraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/vectorcraft/"
+      },
+      "window": {
+        "minWidth": 720,
+        "minHeight": 480,
+        "preferredWidth": 1180,
+        "preferredHeight": 760,
+        "resizable": true,
+        "appThemeColor": "#101827"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/vectorcraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "user-owned PWA on GitHub Pages"
+    },
+    {
+      "id": "com.jeremyandersontech.photocraft",
+      "name": "PhotoCraft",
+      "shortName": "PhotoCraft",
+      "description": "Photo editing and image adjustments.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/photocraft.svg",
+        "color": "#0E8F8A"
+      },
+      "category": "graphics",
+      "launch": {
+        "url": "https://cptnope.github.io/photocraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/photocraft/"
+      },
+      "window": {
+        "minWidth": 720,
+        "minHeight": 480,
+        "preferredWidth": 1180,
+        "preferredHeight": 760,
+        "resizable": true,
+        "appThemeColor": "#151925"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/photocraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "user-owned PWA on GitHub Pages"
+    },
+    {
+      "id": "com.jeremyandersontech.figcraft",
+      "name": "FigCraft",
+      "shortName": "FigCraft",
+      "description": "Interface and layout design on a canvas.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/figcraft.svg",
+        "color": "#E2471F"
+      },
+      "category": "design",
+      "launch": {
+        "url": "https://cptnope.github.io/figcraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/figcraft/"
+      },
+      "window": {
+        "minWidth": 800,
+        "minHeight": 520,
+        "preferredWidth": 1240,
+        "preferredHeight": 780,
+        "resizable": true,
+        "appThemeColor": "#19191C"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/figcraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "user-owned PWA on GitHub Pages"
+    },
+    {
+      "id": "com.jeremyandersontech.pdfcraft",
+      "name": "PdfCraft",
+      "shortName": "PdfCraft",
+      "description": "Viewing and working with PDF documents.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/pdfcraft.svg",
+        "color": "#E89B0C"
+      },
+      "category": "documents",
+      "launch": {
+        "url": "https://cptnope.github.io/pdfcraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/pdfcraft/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 480,
+        "preferredWidth": 980,
+        "preferredHeight": 760,
+        "resizable": true,
+        "appThemeColor": "#19191C"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/pdfcraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "user-owned PWA on GitHub Pages"
+    }
+  ]
+}

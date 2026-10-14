@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JAT OS — Project Overview</title>
+<meta name="description" content="JAT OS: a browser-based desktop that runs on top of a WordPress site. Brand book, design system and an interactive prototype with four switchable shell styles.">
+<meta name="theme-color" content="#f8f9fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15181e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<style>
+  body { margin: 0; background: var(--surface-0); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) 0; }
+  header.top img { height: 32px; width: auto; display: block; }
+  .logo-dark { display: none !important; }
+  @media (prefers-color-scheme: dark) { .logo-light { display: none !important; } .logo-dark { display: block !important; } }
+  nav.links { display: flex; gap: var(--space-1); flex-wrap: wrap; }
+  nav.links a { text-decoration: none; }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 7fr); gap: var(--space-12); align-items: center; padding: var(--space-12) 0 var(--space-16); }
+  .hero h1 { margin: 0 0 var(--space-5); font-size: clamp(2.25rem, 2.6vw + 1.25rem, 3.75rem); line-height: 1.04; letter-spacing: var(--tracking-display); font-weight: var(--weight-bold); text-wrap: balance; }
+  .hero p { margin: 0 0 var(--space-8); font-size: var(--text-lg); line-height: var(--leading-normal); color: var(--text-secondary); max-width: 46ch; }
+  .cta { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .cta a { text-decoration: none; }
+  .hero figure { margin: 0; }
+  .shot { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-window); background: var(--surface-2); }
+  figcaption { margin-top: var(--space-3); color: var(--text-tertiary); font-size: var(--text-xs); }
+
+  section.band { padding: var(--space-16) 0; border-top: 1px solid var(--divider); }
+  h2 { margin: 0 0 var(--space-3); font-size: var(--text-3xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); font-weight: var(--weight-bold); text-wrap: balance; }
+  .lede { margin: 0 0 var(--space-10); color: var(--text-secondary); font-size: var(--text-md); max-width: 62ch; }
+
+  .styles { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-8) var(--space-6); }
+  .styles figure { margin: 0; }
+  .styles .a { grid-column: span 7; } .styles .b { grid-column: span 5; align-self: end; }
+  .styles .c { grid-column: span 5; } .styles .d { grid-column: span 7; }
+  .styles h3 { margin: var(--space-4) 0 var(--space-1); font-size: var(--text-lg); letter-spacing: var(--tracking-title); }
+  .styles p { margin: 0; color: var(--text-secondary); max-width: 52ch; }
+
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); align-items: start; }
+  .deliverables { display: grid; gap: 0; border-top: 1px solid var(--divider); }
+  .deliverable { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-4); align-items: center; padding: var(--space-5) 0; border-bottom: 1px solid var(--divider); text-decoration: none; color: inherit; }
+  .deliverable strong { font-size: var(--text-lg); letter-spacing: var(--tracking-title); }
+  .deliverable span { grid-column: 1; color: var(--text-secondary); }
+  .deliverable .jat-icon { grid-row: 1 / span 2; grid-column: 2; color: var(--text-tertiary); transition: transform var(--dur-fast) var(--ease-out), color var(--dur-fast) linear; }
+  .deliverable:hover strong { color: var(--text-link); }
+  .deliverable:hover .jat-icon { transform: translateX(3px); color: var(--text-link); }
+
+  .phones { display: flex; gap: var(--space-5); justify-content: center; }
+  .phones img { width: min(240px, 44vw); height: auto; border-radius: 28px; box-shadow: var(--shadow-lg); border: 6px solid var(--ref-slate-900); }
+
+  table.status { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+  .status td:nth-child(2) { white-space: nowrap; }
+  .status th, .status td { text-align: left; padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  .status th { font-weight: var(--weight-semibold); color: var(--text-secondary); font-size: var(--text-xs); }
+  .status td:first-child { font-weight: var(--weight-medium); white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+
+  .files { font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1.9; color: var(--text-secondary); background: var(--surface-1); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); overflow-x: auto; margin: 0; }
+  .files { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-1) var(--space-6); }
+  .files dt { color: var(--text-primary); font-weight: 500; }
+  .files dd { margin: 0; }
+  @media (max-width: 600px) { .files { grid-template-columns: 1fr; gap: 0; } .files dd { margin-bottom: var(--space-2); } }
+
+  footer { padding: var(--space-10) 0 var(--space-12); border-top: 1px solid var(--divider); color: var(--text-tertiary); font-size: var(--text-xs); display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+
+  @media (max-width: 960px) {
+    .hero, .split { grid-template-columns: 1fr; gap: var(--space-8); }
+    .styles .a, .styles .b, .styles .c, .styles .d { grid-column: 1 / -1; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 var(--space-4); }
+    .hero { padding: var(--space-6) 0 var(--space-10); }
+    section.band { padding: var(--space-12) 0; }
+    nav.links .hide-sm { display: none; }
+    .status thead { display: none; }
+    .status tr { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--divider); }
+    .status td { border: 0; padding: 0; white-space: normal !important; }
+    .status td:nth-child(3) { grid-column: 1 / -1; color: var(--text-secondary); }
+    .files { white-space: pre-wrap; }
+  }
+</style>
+</head>
+<body class="jat">
+<div class="wrap">
+  <header class="top">
+    <a href="./" aria-label="JAT OS home">
+      <img class="logo-light" src="assets/logo/jat-os-logo.svg" alt="JAT OS" width="118" height="32">
+      <img class="logo-dark" src="assets/logo/jat-os-logo-reversed.svg" alt="JAT OS" width="118" height="32">
+    </a>
+    <nav class="links" aria-label="Project">
+      <a class="jat-btn jat-btn--ghost" href="brandbook/">Brand book</a>
+      <a class="jat-btn jat-btn--ghost" href="example/">Example</a>
+      <a class="jat-btn jat-btn--ghost hide-sm" href="https://github.com/CptNope/JAT-OS">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>A desktop for the Craft apps, on top of your website.</h1>
+        <p>JAT OS is a browser-based operating layer delivered as a WordPress plugin. Visitors keep the normal site. Anyone can switch into a desktop with windows, a launcher and four layouts that feel like home.</p>
+        <div class="cta">
+          <a class="jat-btn jat-btn--primary jat-btn--lg" href="example/">Try the example</a>
+          <a class="jat-btn jat-btn--lg" href="brandbook/">Read the brand book</a>
+        </div>
+      </div>
+      <figure>
+        <img class="shot" src="assets/screens/dock-light.jpg" width="2160" height="1350" alt="JAT OS in the Dock style: a menu bar on top, Settings open on the Shell style page beside an About window, desktop icons for the four Craft apps, and a floating dock at the bottom.">
+        <figcaption>Dock style, light theme. Captured from the example.</figcaption>
+      </figure>
+    </div>
+
+    <section class="band" aria-labelledby="styles-h">
+      <h2 id="styles-h">Four layouts, one system</h2>
+      <p class="lede">Every shell style uses the same tokens, components, apps and settings. Only the layout, the window controls and the corner shapes change, and people can switch at any time.</p>
+      <div class="styles">
+        <figure class="a">
+          <img class="shot" src="assets/screens/taskbar-dark.jpg" width="2160" height="1350" loading="lazy" alt="Taskbar style in dark theme: the Start panel open over App Manager, which lists VectorCraft, PhotoCraft, FigCraft and PdfCraft with how each one opens.">
+          <h3>Taskbar</h3>
+          <p>A centered taskbar with Start and search, window controls on the right, and an active-window indicator under each app.</p>
+        </figure>
+        <figure class="b">
+          <img class="shot" src="assets/screens/shelf-light.jpg" width="2160" height="1350" loading="lazy" alt="Shelf style: a rounded app shelf at the bottom, a circular launcher button, a status pill with the clock, and the launcher open with all apps.">
+          <h3>Shelf</h3>
+          <p>A floating shelf, a launcher that holds every app and setting, and rounded controls made for touch.</p>
+        </figure>
+        <figure class="c">
+          <img class="shot" src="assets/screens/welcome.jpg" width="2160" height="1350" loading="lazy" alt="The first-launch welcome window, where people pick Dock, Taskbar, Shelf or Activities before they start.">
+          <h3>Dock</h3>
+          <p>The default. A menu bar with the active app’s name, a floating dock, and close, minimize and zoom on the left.</p>
+        </figure>
+        <figure class="d">
+          <img class="shot" src="assets/screens/activities-dark.jpg" width="2160" height="1350" loading="lazy" alt="Activities overview in dark theme: a search field, two desktops, the open windows laid out as cards, and a dash of apps at the bottom.">
+          <h3>Activities</h3>
+          <p>A top bar and an overview that shows every window and desktop at once. Press Ctrl + Space to open it.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="band split" aria-labelledby="what-h">
+      <div>
+        <h2 id="what-h">What’s here</h2>
+        <p class="lede">The foundations for building JAT OS for real: the brand, the system and a working shell to test ideas against.</p>
+        <div class="deliverables">
+          <a class="deliverable" href="brandbook/">
+            <strong>Brand book and design system</strong>
+            <span>Identity, colour, type, icons, components, motion, the app manifest, the bridge protocol and the WordPress plan.</span>
+            <svg class="jat-icon" aria-hidden="true"><use href="assets/icons.svg#i-chevron-right"/></svg>
+          </a>
+          <a class="deliverable" href="example/">
+            <strong>Interactive example</strong>
+            <span>A demo site that switches into JAT OS. Drag, snap and resize windows, change styles, and open the Craft apps.</span>
+            <svg class="jat-icon" aria-hidden="true"><use href="assets/icons.svg#i-chevron-right"/></svg>
+          </a>
+          <a class="deliverable" href="assets/tokens.json">
+            <strong>Design tokens</strong>
+            <span>Reference, semantic and shell-style tokens as CSS custom properties and JSON.</span>
+            <svg class="jat-icon" aria-hidden="true"><use href="assets/icons.svg#i-chevron-right"/></svg>
+          </a>
+          <a class="deliverable" href="registry/apps.json">
+            <strong>App registry</strong>
+            <span>The four Craft apps described with the JAT App Manifest v1, plus its JSON schema.</span>
+            <svg class="jat-icon" aria-hidden="true"><use href="assets/icons.svg#i-chevron-right"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="phones">
+          <img src="assets/screens/phone.jpg" width="780" height="1688" loading="lazy" alt="JAT OS on a phone: a home screen grid of apps with a navigation bar.">
+          <img src="assets/screens/phone-settings.jpg" width="780" height="1688" loading="lazy" alt="Settings on a phone in dark theme, full screen, with the shell style options.">
+        </div>
+        <p style="text-align:center;color:var(--text-tertiary);font-size:var(--text-xs);margin-top:var(--space-4)">On phones, apps run full screen with a home screen and app switcher.</p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="status-h">
+      <h2 id="status-h">Built, and still to build</h2>
+      <p class="lede">The example is a design prototype, not the plugin. This is exactly what works today.</p>
+      <div class="table-scroll">
+        <table class="status">
+          <thead><tr><th scope="col">Area</th><th scope="col">Status</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Website ⇄ OS toggle</td><td><span class="jat-badge jat-badge--success">Works</span></td><td>Enter and exit, browser Back exits. The demo site’s styles are untouched because the shell renders in a shadow root.</td></tr>
+            <tr><td>Window management</td><td><span class="jat-badge jat-badge--success">Works</span></td><td>Drag, resize, minimize, maximize, edge snapping with preview, focus and stacking, two to four desktops, title bar menu.</td></tr>
+            <tr><td>Shell styles</td><td><span class="jat-badge jat-badge--success">Works</span></td><td>Dock, Taskbar, Shelf and Activities, switchable live from Settings, quick settings or the desktop menu.</td></tr>
+            <tr><td>Launcher and search</td><td><span class="jat-badge jat-badge--success">Works</span></td><td>Apps and settings, arrow-key navigation, Ctrl + Space.</td></tr>
+            <tr><td>Craft apps in windows</td><td><span class="jat-badge jat-badge--success">Works</span></td><td>Embedded in a sandboxed frame, with a new-tab option, loading, slow and offline states.</td></tr>
+            <tr><td>Preferences and restore</td><td><span class="jat-badge jat-badge--warning">This browser only</span></td><td>Saved in localStorage. The plugin will save to WordPress user meta.</td></tr>
+            <tr><td>Files</td><td><span class="jat-badge">Preview</span></td><td>An honest empty state. Planned to show the WordPress Media Library.</td></tr>
+            <tr><td>WordPress plugin, REST API, admin</td><td><span class="jat-badge">Planned</span></td><td>Architecture in the brand book.</td></tr>
+            <tr><td>App bridge (jat-bridge/1)</td><td><span class="jat-badge">Planned</span></td><td>Draft protocol in the brand book. No app speaks it yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="repo-h">
+      <h2 id="repo-h">In the repository</h2>
+      <p class="lede">Everything is static and hosted on GitHub Pages. The shell is TypeScript compiled to plain ES modules, with no framework.</p>
+<dl class="files"><dt>index.html</dt><dd>this overview</dd><dt>brandbook/</dt><dd>brand book and design system</dd><dt>example/</dt><dd>demo site + JAT OS shell (src/*.ts → dist/*.js)</dd><dt>assets/</dt><dd>tokens.css · tokens.json · components.css · icons.svg · logo/ · apps/ · wallpapers/ · screens/</dd><dt>registry/</dt><dd>apps.json · manifest.schema.json</dd><dt>PRODUCT.md</dt><dd>product truth (Impeccable)</dd><dt>DESIGN.md</dt><dd>visual system record (Impeccable)</dd><dt>CLAUDE.md</dt><dd>notes for working on this repo with Claude</dd></dl>
+    </section>
+  </main>
+
+  <footer>
+    <span>JAT OS by Jeremy Anderson Tech</span>
+    <span>Screenshots are captured from the example in this repository.</span>
+  </footer>
+</div>
+</body>
+</html>

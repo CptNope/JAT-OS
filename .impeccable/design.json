@@ -1,0 +1,926 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-14T16:21:04+00:00",
+  "title": "Design System: JAT OS",
+  "extensions": {
+    "colorMeta": {
+      "jat-blue": {
+        "role": "primary",
+        "displayName": "JAT Blue",
+        "canonical": "#2f6bff",
+        "oklch": "oklch(58.1% 0.229 263.9)",
+        "cssVar": "--ref-blue-500 / --brand",
+        "tonalRamp": [
+          "#12378f",
+          "#1747bd",
+          "#1f5ae6",
+          "#2f6bff",
+          "#7fa4ff",
+          "#8ab0ff",
+          "#b9ccff",
+          "#eef3ff"
+        ]
+      },
+      "jat-blue-interactive": {
+        "role": "primary",
+        "displayName": "Interactive Blue",
+        "canonical": "#1f5ae6",
+        "oklch": "oklch(52.3% 0.221 263.4)",
+        "cssVar": "--ref-blue-600 / --accent",
+        "tonalRamp": [
+          "#12378f",
+          "#1747bd",
+          "#1f5ae6",
+          "#2f6bff",
+          "#7fa4ff",
+          "#8ab0ff",
+          "#b9ccff",
+          "#eef3ff"
+        ]
+      },
+      "jat-blue-hover": {
+        "role": "primary",
+        "displayName": "Blue Hover",
+        "canonical": "#1747bd",
+        "oklch": "oklch(44.9% 0.192 263.6)",
+        "cssVar": "--ref-blue-700 / --accent-hover",
+        "tonalRamp": [
+          "#12378f",
+          "#1747bd",
+          "#1f5ae6",
+          "#2f6bff",
+          "#7fa4ff",
+          "#8ab0ff",
+          "#b9ccff",
+          "#eef3ff"
+        ]
+      },
+      "jat-blue-pressed": {
+        "role": "primary",
+        "displayName": "Blue Pressed",
+        "canonical": "#12378f",
+        "oklch": "oklch(37.3% 0.152 263.5)",
+        "cssVar": "--ref-blue-800 / --accent-pressed",
+        "tonalRamp": [
+          "#12378f",
+          "#1747bd",
+          "#1f5ae6",
+          "#2f6bff",
+          "#7fa4ff",
+          "#8ab0ff",
+          "#b9ccff",
+          "#eef3ff"
+        ]
+      },
+      "jat-blue-soft": {
+        "role": "primary",
+        "displayName": "Blue Wash",
+        "canonical": "#eef3ff",
+        "oklch": "oklch(96.4% 0.017 267.8)",
+        "cssVar": "--ref-blue-50 / --accent-soft",
+        "tonalRamp": [
+          "#12378f",
+          "#1747bd",
+          "#1f5ae6",
+          "#2f6bff",
+          "#7fa4ff",
+          "#8ab0ff",
+          "#b9ccff",
+          "#eef3ff"
+        ]
+      },
+      "jat-blue-light": {
+        "role": "primary",
+        "displayName": "Light Blue",
+        "canonical": "#7fa4ff",
+        "oklch": "oklch(73.0% 0.139 266.3)",
+        "cssVar": "--ref-blue-400",
+        "tonalRamp": [
+          "#12378f",
+          "#1747bd",
+          "#1f5ae6",
+          "#2f6bff",
+          "#7fa4ff",
+          "#8ab0ff",
+          "#b9ccff",
+          "#eef3ff"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "cssVar": "--ref-slate-0 / --surface-1",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#f8f9fb",
+        "oklch": "oklch(98.2% 0.003 264.5)",
+        "cssVar": "--ref-slate-25 / --surface-0",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#f1f3f6",
+        "oklch": "oklch(96.3% 0.005 258.3)",
+        "cssVar": "--ref-slate-50 / --surface-2",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "cloud": {
+        "role": "neutral",
+        "displayName": "Cloud",
+        "canonical": "#e6e9ee",
+        "oklch": "oklch(93.3% 0.007 260.7)",
+        "cssVar": "--ref-slate-100 / --surface-3",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "slate-line": {
+        "role": "neutral",
+        "displayName": "Slate Line",
+        "canonical": "#d3d8e0",
+        "oklch": "oklch(88.1% 0.012 259.8)",
+        "cssVar": "--ref-slate-200",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "#8c95a4",
+        "oklch": "oklch(66.7% 0.025 260.7)",
+        "cssVar": "--ref-slate-400 / --text-disabled",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "slate-secondary": {
+        "role": "neutral",
+        "displayName": "Slate Secondary",
+        "canonical": "#5a6373",
+        "oklch": "oklch(49.8% 0.028 262.0)",
+        "cssVar": "--ref-slate-600 / --text-secondary",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "slate-tertiary": {
+        "role": "neutral",
+        "displayName": "Slate Tertiary",
+        "canonical": "#5f6878",
+        "oklch": "oklch(51.5% 0.028 262.0)",
+        "cssVar": "--text-tertiary (light)",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#252a34",
+        "oklch": "oklch(28.4% 0.020 264.2)",
+        "cssVar": "--ref-slate-800",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#15181e",
+        "oklch": "oklch(20.9% 0.013 264.2)",
+        "cssVar": "--ref-slate-900 / --text-primary",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "#0e1014",
+        "oklch": "oklch(17.3% 0.009 264.3)",
+        "cssVar": "--ref-slate-950",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "night-text": {
+        "role": "neutral",
+        "displayName": "Night Text",
+        "canonical": "#eef0f4",
+        "oklch": "oklch(95.5% 0.006 264.5)",
+        "cssVar": "--text-primary (dark)",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "night-secondary": {
+        "role": "neutral",
+        "displayName": "Night Secondary",
+        "canonical": "#a9b1be",
+        "oklch": "oklch(75.8% 0.021 260.2)",
+        "cssVar": "--text-secondary (dark)",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "night-surface-1": {
+        "role": "neutral",
+        "displayName": "Night Surface 1",
+        "canonical": "#1c2028",
+        "oklch": "oklch(24.3% 0.016 264.2)",
+        "cssVar": "--ref-slate-850",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "night-surface-2": {
+        "role": "neutral",
+        "displayName": "Night Surface 2",
+        "canonical": "#191c23",
+        "oklch": "oklch(22.6% 0.014 266.9)",
+        "cssVar": "--surface-2 (dark)",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "night-raised": {
+        "role": "neutral",
+        "displayName": "Night Raised",
+        "canonical": "#20242d",
+        "oklch": "oklch(26.0% 0.018 266.3)",
+        "cssVar": "--surface-raised (dark)",
+        "tonalRamp": [
+          "#0e1014",
+          "#15181e",
+          "#252a34",
+          "#373e4b",
+          "#5a6373",
+          "#8c95a4",
+          "#d3d8e0",
+          "#f8f9fb"
+        ]
+      },
+      "success": {
+        "role": "status",
+        "displayName": "Success Green",
+        "canonical": "#147a41",
+        "oklch": "oklch(51.1% 0.125 152.5)",
+        "cssVar": "--ref-green-600",
+        "tonalRamp": [
+          "#001003",
+          "#002f11",
+          "#005222",
+          "#08753c",
+          "#3b975c",
+          "#61bc7e",
+          "#92dea8",
+          "#cafdd7"
+        ]
+      },
+      "success-dark": {
+        "role": "status",
+        "displayName": "Success Green (dark)",
+        "canonical": "#55cf93",
+        "oklch": "oklch(77.0% 0.140 158.9)",
+        "cssVar": "--ref-green-300",
+        "tonalRamp": [
+          "#001104",
+          "#003114",
+          "#005428",
+          "#007842",
+          "#009b62",
+          "#43bf84",
+          "#80e1ad",
+          "#c0ffdb"
+        ]
+      },
+      "warning": {
+        "role": "status",
+        "displayName": "Warning Amber",
+        "canonical": "#94590a",
+        "oklch": "oklch(51.9% 0.113 65.3)",
+        "cssVar": "--ref-amber-700",
+        "tonalRamp": [
+          "#160700",
+          "#3b1c00",
+          "#653400",
+          "#8c5100",
+          "#b0732f",
+          "#d59654",
+          "#f5bd86",
+          "#ffe6c1"
+        ]
+      },
+      "warning-dark": {
+        "role": "status",
+        "displayName": "Warning Amber (dark)",
+        "canonical": "#f2b856",
+        "oklch": "oklch(81.8% 0.132 78.1)",
+        "cssVar": "--ref-amber-300",
+        "tonalRamp": [
+          "#150800",
+          "#3a1e00",
+          "#633600",
+          "#895400",
+          "#ad7600",
+          "#d29933",
+          "#f1c071",
+          "#ffe9b4"
+        ]
+      },
+      "danger": {
+        "role": "status",
+        "displayName": "Danger Red",
+        "canonical": "#b42330",
+        "oklch": "oklch(50.3% 0.179 22.5)",
+        "cssVar": "--ref-red-600",
+        "tonalRamp": [
+          "#1f0002",
+          "#4e0008",
+          "#820015",
+          "#b01f2d",
+          "#d9494e",
+          "#ff6f6f",
+          "#ff9e9b",
+          "#ffd3ce"
+        ]
+      },
+      "danger-dark": {
+        "role": "status",
+        "displayName": "Danger Red (dark)",
+        "canonical": "#ff7a82",
+        "oklch": "oklch(73.6% 0.162 18.2)",
+        "cssVar": "--ref-red-300",
+        "tonalRamp": [
+          "#1e0103",
+          "#4a0411",
+          "#7c0b23",
+          "#aa2b3c",
+          "#d1515c",
+          "#fa757e",
+          "#ffa3a7",
+          "#ffd5d6"
+        ]
+      },
+      "close-red": {
+        "role": "status",
+        "displayName": "Close Red",
+        "canonical": "#d92d38",
+        "oklch": "oklch(57.8% 0.206 23.8)",
+        "cssVar": "--window-close-hover",
+        "tonalRamp": [
+          "#220000",
+          "#530001",
+          "#8a0003",
+          "#ba001e",
+          "#e33941",
+          "#ff6263",
+          "#ff9691",
+          "#ffcec7"
+        ]
+      },
+      "app-vectorcraft": {
+        "role": "app-identity",
+        "displayName": "VectorCraft Violet",
+        "canonical": "#7b4dff",
+        "oklch": "oklch(57.8% 0.247 287.9)",
+        "cssVar": "--app-vectorcraft",
+        "tonalRamp": [
+          "#0d002c",
+          "#280068",
+          "#4700ab",
+          "#652be1",
+          "#8358ff",
+          "#a37fff",
+          "#c5aeff",
+          "#e9dfff"
+        ]
+      },
+      "app-photocraft": {
+        "role": "app-identity",
+        "displayName": "PhotoCraft Teal",
+        "canonical": "#0e8f8a",
+        "oklch": "oklch(58.8% 0.099 190.4)",
+        "cssVar": "--app-photocraft",
+        "tonalRamp": [
+          "#000f0e",
+          "#002e2c",
+          "#00504d",
+          "#00726e",
+          "#1c9590",
+          "#4cb9b3",
+          "#85dbd6",
+          "#c3fcf7"
+        ]
+      },
+      "app-figcraft": {
+        "role": "app-identity",
+        "displayName": "FigCraft Vermilion",
+        "canonical": "#e2471f",
+        "oklch": "oklch(61.5% 0.198 34.8)",
+        "cssVar": "--app-figcraft",
+        "tonalRamp": [
+          "#210000",
+          "#510000",
+          "#870000",
+          "#b71200",
+          "#df441c",
+          "#ff6c46",
+          "#ff9d7b",
+          "#ffd3ba"
+        ]
+      },
+      "app-pdfcraft": {
+        "role": "app-identity",
+        "displayName": "PdfCraft Amber",
+        "canonical": "#e89b0c",
+        "oklch": "oklch(74.8% 0.157 73.2)",
+        "cssVar": "--app-pdfcraft",
+        "tonalRamp": [
+          "#180600",
+          "#401900",
+          "#6c2f00",
+          "#944d00",
+          "#b96f00",
+          "#df9300",
+          "#fdbb5e",
+          "#ffe6aa"
+        ]
+      },
+      "app-system": {
+        "role": "app-identity",
+        "displayName": "System Slate",
+        "canonical": "#4e5666",
+        "oklch": "oklch(45.2% 0.028 264.2)",
+        "cssVar": "--app-system",
+        "tonalRamp": [
+          "#090b0f",
+          "#21252e",
+          "#3b4250",
+          "#596172",
+          "#7a8394",
+          "#9ca5b7",
+          "#c1c9d9",
+          "#e9effa"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Brand book hero headings only (--text-4xl)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Welcome window heading (--text-3xl); 26px on phone."
+      },
+      "title": {
+        "displayName": "Panel title",
+        "purpose": "Settings pane and app pad headings (--text-xl)."
+      },
+      "title-sm": {
+        "displayName": "Dialog title",
+        "purpose": "Dialogs, empty-state titles (--text-lg)."
+      },
+      "body": {
+        "displayName": "UI default",
+        "purpose": "Default shell text: menus, lists, title bars, buttons (--text-sm)."
+      },
+      "body-app": {
+        "displayName": "App body",
+        "purpose": "Body text and inputs inside apps, launcher search (--text-md)."
+      },
+      "label": {
+        "displayName": "Caption",
+        "purpose": "Hints, timestamps, desktop and launcher labels, small buttons (--text-xs)."
+      },
+      "badge": {
+        "displayName": "Badge",
+        "purpose": "Badges and kbd (--text-2xs)."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Paths, URLs, versions, code and keyboard shortcuts only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-sm",
+        "value": "0 1px 2px rgb(14 16 20 / 0.08), 0 1px 1px rgb(14 16 20 / 0.04)",
+        "dark": "0 1px 2px rgb(0 0 0 / 0.4)",
+        "purpose": "Default buttons, switch knob, selected segment, wallpaper thumbnails."
+      },
+      {
+        "name": "shadow-md",
+        "value": "0 4px 12px rgb(14 16 20 / 0.10), 0 1px 3px rgb(14 16 20 / 0.08)",
+        "dark": "0 4px 12px rgb(0 0 0 / 0.4), 0 1px 3px rgb(0 0 0 / 0.3)",
+        "purpose": "Tooltips, Shelf pills and launcher button."
+      },
+      {
+        "name": "shadow-lg",
+        "value": "0 12px 32px rgb(14 16 20 / 0.16), 0 2px 8px rgb(14 16 20 / 0.08)",
+        "dark": "0 12px 32px rgb(0 0 0 / 0.5), 0 2px 8px rgb(0 0 0 / 0.3)",
+        "purpose": "Menus, popovers, panels, toasts, dock, dash."
+      },
+      {
+        "name": "shadow-window",
+        "value": "0 22px 48px rgb(14 16 20 / 0.22), 0 4px 12px rgb(14 16 20 / 0.10), 0 0 0 1px rgb(14 16 20 / 0.10)",
+        "dark": "0 22px 48px rgb(0 0 0 / 0.55), 0 4px 12px rgb(0 0 0 / 0.35), 0 0 0 1px rgb(255 255 255 / 0.10)",
+        "purpose": "Focused window, dialogs, overview thumbnails."
+      },
+      {
+        "name": "shadow-window-inactive",
+        "value": "0 10px 24px rgb(14 16 20 / 0.12), 0 0 0 1px rgb(14 16 20 / 0.08)",
+        "dark": "0 10px 24px rgb(0 0 0 / 0.4), 0 0 0 1px rgb(255 255 255 / 0.06)",
+        "purpose": "Unfocused windows."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid var(--focus-ring); outline-offset: 2px",
+        "purpose": "Every focusable element; inputs use border + 0 0 0 3px var(--selection-bg) instead."
+      },
+      {
+        "name": "chrome-bar-blur",
+        "value": "backdrop-filter: saturate(1.6) blur(24px)",
+        "purpose": "Translucent bars, dock and shelf; drops to solid under prefers-reduced-transparency or .os[data-solid]."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Opening and entering; dock hover lift."
+      },
+      {
+        "name": "ease-in",
+        "value": "cubic-bezier(0.7, 0, 0.84, 0)",
+        "purpose": "Leaving."
+      },
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.2, 0, 0, 1)",
+        "purpose": "Moves and resizes; window snap animation (220ms)."
+      },
+      {
+        "name": "dur-instant",
+        "value": "80ms",
+        "purpose": "Hover and press."
+      },
+      {
+        "name": "dur-fast",
+        "value": "140ms",
+        "purpose": "Menus, tooltips, indicators."
+      },
+      {
+        "name": "dur-base",
+        "value": "220ms",
+        "purpose": "Windows open and close, panels."
+      },
+      {
+        "name": "dur-slow",
+        "value": "360ms",
+        "purpose": "Minimise, workspace switch, wallpaper change."
+      },
+      {
+        "name": "dur-mode",
+        "value": "480ms",
+        "purpose": "Entering and leaving OS mode."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "fast/base/slow/mode -> 1ms",
+        "purpose": "prefers-reduced-motion: reduce; Web Animations skipped."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "<600px",
+        "purpose": "Full-screen apps, home grid, 32px status bar, 52px nav bar."
+      },
+      {
+        "name": "tablet",
+        "value": "600px-1023px",
+        "purpose": "Windows open maximised."
+      },
+      {
+        "name": "desktop",
+        "value": ">=1024px",
+        "purpose": "Full window management."
+      },
+      {
+        "name": "settings-collapse",
+        "value": "760px",
+        "purpose": "Settings sidebar becomes a horizontal strip."
+      },
+      {
+        "name": "taskbar-search-compact",
+        "value": "1180px",
+        "purpose": "Taskbar search pill collapses to an icon."
+      }
+    ],
+    "shellStyles": [
+      {
+        "name": "dock",
+        "default": true,
+        "topbar": "28px",
+        "bottombar": "0px (floating dock 64px, 48px icons)",
+        "windowRadius": "12px",
+        "titlebar": "38px",
+        "controls": "start, traffic-light circles",
+        "panelRadius": "16px"
+      },
+      {
+        "name": "taskbar",
+        "topbar": "0px",
+        "bottombar": "48px",
+        "windowRadius": "8px",
+        "titlebar": "36px",
+        "controls": "end, rect",
+        "panelRadius": "8px"
+      },
+      {
+        "name": "shelf",
+        "topbar": "0px",
+        "bottombar": "56px floating shelf",
+        "windowRadius": "12px",
+        "titlebar": "40px",
+        "controls": "end, circle-icon",
+        "panelRadius": "22px"
+      },
+      {
+        "name": "activities",
+        "topbar": "32px dark",
+        "bottombar": "0px",
+        "windowRadius": "12px",
+        "titlebar": "44px",
+        "controls": "end, circle-icon",
+        "panelRadius": "16px"
+      }
+    ],
+    "provenance": {
+      "rasters": "assets/screens/*.jpg are Playwright captures of example/index.html.",
+      "vector": "All SVG art (assets/logo, assets/apps, assets/icons.svg, assets/wallpapers) was authored for this project."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per view; Interactive Blue with white text.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Open app</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:32px;padding:0 12px;border:1px solid transparent;border-radius:8px;font:500 13px/1.5 Inter,\"Segoe UI\",system-ui,sans-serif;cursor:default;transition:background 80ms linear,border-color 80ms linear,transform 80ms cubic-bezier(0.16,1,0.3,1);} .ds-btn-primary{background:var(--accent, #1f5ae6);color:#fff;box-shadow:0 1px 2px rgb(14 16 20 / 0.08),0 1px 1px rgb(14 16 20 / 0.04);} .ds-btn-primary:hover{background:var(--accent-hover, #1747bd);} .ds-btn-primary:active{background:var(--accent-pressed, #12378f);transform:translateY(0.5px);box-shadow:none;} .ds-btn:focus-visible{outline:2px solid var(--focus-ring, #2f6bff);outline-offset:2px;}"
+    },
+    {
+      "name": "Default Button",
+      "kind": "button",
+      "refersTo": "button-default",
+      "description": "Secondary actions: surface-1 with a hairline border and small shadow.",
+      "html": "<button class=\"ds-btn-default\">Cancel</button>",
+      "css": ".ds-btn-default{display:inline-flex;align-items:center;height:32px;padding:0 12px;border:1px solid var(--border-default, rgb(21 24 30 / 0.14));border-radius:8px;background:var(--surface-1, #ffffff);color:var(--text-primary, #15181e);font:500 13px/1.5 Inter,\"Segoe UI\",system-ui,sans-serif;box-shadow:0 1px 2px rgb(14 16 20 / 0.08),0 1px 1px rgb(14 16 20 / 0.04);cursor:default;transition:background 80ms linear;} .ds-btn-default:hover{background:var(--surface-3, #e6e9ee);} .ds-btn-default:active{background:var(--surface-3, #e6e9ee);box-shadow:none;transform:translateY(0.5px);} .ds-btn-default:focus-visible{outline:2px solid var(--focus-ring, #2f6bff);outline-offset:2px;}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost-hover",
+      "description": "Toolbar and low-emphasis actions; no border or shadow until hover.",
+      "html": "<button class=\"ds-btn-ghost\">Details</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;height:32px;padding:0 12px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--text-primary, #15181e);font:500 13px/1.5 Inter,\"Segoe UI\",system-ui,sans-serif;cursor:default;transition:background 80ms linear;} .ds-btn-ghost:hover{background:var(--surface-3, #e6e9ee);} .ds-btn-ghost:focus-visible{outline:2px solid var(--focus-ring, #2f6bff);outline-offset:2px;}"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "32px field with leading search icon; focus shifts the border to the ring colour with a 3px selection halo.",
+      "html": "<label class=\"ds-search\"><svg class=\"ds-search-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6\"/><path d=\"M15 15l5 5\"/></svg><input class=\"ds-input\" placeholder=\"Search apps and settings\"></label>",
+      "css": ".ds-search{position:relative;display:flex;align-items:center;width:280px;} .ds-search-icon{position:absolute;left:10px;color:var(--text-tertiary, #5f6878);pointer-events:none;} .ds-input{width:100%;height:32px;padding:0 12px 0 34px;border:1px solid var(--border-default, rgb(21 24 30 / 0.14));border-radius:8px;background:var(--surface-1, #ffffff);color:var(--text-primary, #15181e);font:400 13px/1.5 Inter,\"Segoe UI\",system-ui,sans-serif;transition:border-color 80ms linear,box-shadow 80ms linear;} .ds-input::placeholder{color:var(--text-tertiary, #5f6878);} .ds-input:hover{border-color:var(--border-strong, rgb(21 24 30 / 0.28));} .ds-input:focus-visible{outline:none;border-color:var(--focus-ring, #2f6bff);box-shadow:0 0 0 3px var(--selection-bg, rgb(47 107 255 / 0.18));}"
+    },
+    {
+      "name": "Context Menu",
+      "kind": "nav",
+      "refersTo": "menu",
+      "description": "Raised menu; hovered, focused or keyboard-active item fills Interactive Blue.",
+      "html": "<div class=\"ds-menu\" role=\"menu\"><button class=\"ds-menu-item\" role=\"menuitem\"><span></span>Minimize<kbd>Ctrl Alt ↓</kbd></button><button class=\"ds-menu-item\" role=\"menuitem\"><span></span>Snap left<kbd>Ctrl Alt ←</kbd></button><div class=\"ds-menu-sep\"></div><button class=\"ds-menu-item\" role=\"menuitem\"><span></span>Close</button></div>",
+      "css": ".ds-menu{display:grid;gap:1px;min-width:220px;padding:4px;border-radius:8px;background:var(--surface-raised, #ffffff);border:1px solid var(--border-subtle, rgb(21 24 30 / 0.08));box-shadow:0 12px 32px rgb(14 16 20 / 0.16),0 2px 8px rgb(14 16 20 / 0.08);font:400 13px/1.5 Inter,\"Segoe UI\",system-ui,sans-serif;} .ds-menu-item{display:grid;grid-template-columns:16px 1fr auto;align-items:center;gap:8px;min-height:28px;padding:0 8px;border:0;border-radius:5px;background:none;color:var(--text-primary, #15181e);font:inherit;text-align:left;cursor:default;} .ds-menu-item kbd{font:400 12px Inter,system-ui,sans-serif;color:var(--text-tertiary, #5f6878);} .ds-menu-item:hover,.ds-menu-item:focus-visible{background:var(--accent, #1f5ae6);color:#fff;outline:none;} .ds-menu-item:hover kbd,.ds-menu-item:focus-visible kbd{color:inherit;opacity:0.85;} .ds-menu-sep{height:1px;margin:4px 8px;background:var(--divider, rgb(21 24 30 / 0.08));}"
+    },
+    {
+      "name": "Accent Badge",
+      "kind": "chip",
+      "refersTo": "badge-accent",
+      "description": "Status and tag pill; accent, success, warning and danger tints share the shape.",
+      "html": "<span class=\"ds-badge\">Embedded</span> <span class=\"ds-badge ds-badge-success\">Installed</span> <span class=\"ds-badge ds-badge-neutral\">Concept</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:999px;background:var(--accent-soft, #eef3ff);color:var(--accent-soft-text, #1747bd);font:600 11px/1 Inter,\"Segoe UI\",system-ui,sans-serif;letter-spacing:0.01em;} .ds-badge-success{background:var(--success-soft, #e3f5ea);color:var(--success, #147a41);} .ds-badge-neutral{background:var(--surface-3, #e6e9ee);color:var(--text-secondary, #5a6373);}"
+    },
+    {
+      "name": "Window (Dock style)",
+      "kind": "card",
+      "refersTo": "window",
+      "description": "Focused window frame with 38px title bar, centred title and left traffic-light controls whose glyphs appear on hover.",
+      "html": "<div class=\"ds-window\"><div class=\"ds-titlebar\"><div class=\"ds-lights\"><button class=\"ds-light ds-close\" aria-label=\"Close\">×</button><button class=\"ds-light ds-min\" aria-label=\"Minimize\">−</button><button class=\"ds-light ds-max\" aria-label=\"Zoom\">+</button></div><div class=\"ds-wtitle\">VectorCraft</div></div><div class=\"ds-wbody\"></div></div>",
+      "css": ".ds-window{width:360px;border-radius:12px;overflow:hidden;background:var(--surface-0, #f8f9fb);box-shadow:0 22px 48px rgb(14 16 20 / 0.22),0 4px 12px rgb(14 16 20 / 0.10),0 0 0 1px rgb(14 16 20 / 0.10);font:400 13px/1.5 Inter,\"Segoe UI\",system-ui,sans-serif;} .ds-titlebar{display:flex;align-items:center;gap:8px;height:38px;padding:0 8px;background:var(--chrome-titlebar, #f1f3f6);border-bottom:1px solid var(--divider, rgb(21 24 30 / 0.08));} .ds-lights{display:flex;gap:8px;padding:0 6px;} .ds-light{width:13px;height:13px;padding:0;border:0;border-radius:50%;display:grid;place-items:center;font:700 10px/1 system-ui;color:transparent;box-shadow:inset 0 0 0 0.5px rgb(0 0 0 / 0.18);} .ds-lights:hover .ds-light,.ds-lights:focus-within .ds-light{color:rgb(0 0 0 / 0.55);} .ds-light:hover{filter:brightness(0.92);} .ds-light:focus-visible{outline:2px solid var(--focus-ring, #2f6bff);outline-offset:2px;} .ds-close{background:#ff5f57;} .ds-min{background:#febc2e;} .ds-max{background:#28c840;} .ds-wtitle{flex:1;text-align:center;padding-right:60px;font-weight:600;color:var(--text-primary, #15181e);} .ds-wbody{height:140px;background:var(--surface-0, #f8f9fb);}"
+    },
+    {
+      "name": "Floating Dock",
+      "kind": "nav",
+      "refersTo": "dock",
+      "description": "Dock style launcher bar: translucent pill with launcher first, app tiles that lift 4px on hover, 4px running dots.",
+      "html": "<nav class=\"ds-dock\" aria-label=\"Dock\"><button class=\"ds-dock-app\" aria-label=\"Launcher\"><span class=\"ds-tile\" style=\"background:#4e5666\"></span></button><span class=\"ds-dock-sep\"></span><button class=\"ds-dock-app\" data-running aria-label=\"VectorCraft\"><span class=\"ds-tile\" style=\"background:#7b4dff\"></span><i></i></button><button class=\"ds-dock-app\" aria-label=\"PhotoCraft\"><span class=\"ds-tile\" style=\"background:#0e8f8a\"></span><i></i></button><button class=\"ds-dock-app\" data-running aria-label=\"FigCraft\"><span class=\"ds-tile\" style=\"background:#e2471f\"></span><i></i></button></nav>",
+      "css": ".ds-dock{display:inline-flex;align-items:center;gap:4px;height:64px;padding:0 6px;border-radius:20px;border:1px solid var(--border-subtle, rgb(21 24 30 / 0.08));background:var(--chrome-bar, rgb(248 249 251 / 0.78));backdrop-filter:saturate(1.6) blur(24px);-webkit-backdrop-filter:saturate(1.6) blur(24px);box-shadow:0 12px 32px rgb(14 16 20 / 0.16),0 2px 8px rgb(14 16 20 / 0.08);} .ds-dock-app{position:relative;display:grid;place-items:center;width:52px;height:56px;padding:0;border:0;border-radius:8px;background:none;cursor:default;transition:transform 140ms cubic-bezier(0.16,1,0.3,1);} .ds-dock-app:hover{transform:translateY(-4px);} .ds-dock-app:active{transform:translateY(-2px) scale(0.96);} .ds-dock-app:focus-visible{outline:2px solid var(--focus-ring, #2f6bff);outline-offset:2px;} .ds-tile{width:48px;height:48px;border-radius:10.9px;box-shadow:inset 0 0 0 1px rgb(0 0 0 / 0.10);filter:drop-shadow(0 1px 2px rgb(0 0 0 / 0.2));} .ds-dock-app i{display:none;position:absolute;bottom:0;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--text-primary, #15181e);} .ds-dock-app[data-running] i{display:block;} .ds-dock-sep{width:1px;align-self:stretch;margin:8px 4px;background:var(--border-default, rgb(21 24 30 / 0.14));} @media (prefers-reduced-transparency: reduce){.ds-dock{background:var(--chrome-bar-solid, #f8f9fb);backdrop-filter:none;-webkit-backdrop-filter:none;}}"
+    },
+    {
+      "name": "Quick Settings Tile",
+      "kind": "custom",
+      "refersTo": "quick-tile-on",
+      "description": "Two-line toggle tile; pressed state fills Interactive Blue.",
+      "html": "<button class=\"ds-qs\" aria-pressed=\"true\"><span class=\"ds-qs-icon\"></span><span><b>Reduce transparency</b><small>On</small></span></button> <button class=\"ds-qs\" aria-pressed=\"false\"><span class=\"ds-qs-icon\"></span><span><b>Do not disturb</b><small>Off</small></span></button>",
+      "css": ".ds-qs{display:inline-flex;align-items:center;gap:8px;width:160px;padding:10px;border:0;border-radius:12px;background:var(--surface-3, #e6e9ee);color:var(--text-primary, #15181e);text-align:left;font:400 12px/1.3 Inter,\"Segoe UI\",system-ui,sans-serif;cursor:default;} .ds-qs b{display:block;font-weight:600;} .ds-qs small{display:block;font-size:12px;color:var(--text-secondary, #5a6373);} .ds-qs-icon{flex:none;width:32px;height:32px;border-radius:50%;background:var(--surface-1, #ffffff);} .ds-qs[aria-pressed=\"true\"]{background:var(--accent, #1f5ae6);color:#fff;} .ds-qs[aria-pressed=\"true\"] small{color:rgb(255 255 255 / 0.85);} .ds-qs[aria-pressed=\"true\"] .ds-qs-icon{background:rgb(255 255 255 / 0.2);} .ds-qs:hover{filter:brightness(0.97);} .ds-qs:focus-visible{outline:2px solid var(--focus-ring, #2f6bff);outline-offset:2px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Category Standard, Played Straight",
+    "overview": "JAT OS is a desktop environment at the craft level of the flagship operating systems, not a novelty web-desktop. The direction is the category standard executed straight: cool neutral greys, one blue accent, a quiet UI sans, crisp window chrome, soft layered shadows, and translucency only where it earns its place (bars, dock, menus over wallpaper). The user chose this over the assigned \"Swatch Standard\" direction and a \"Transit Standard\" pick (seed `4693b33a`, degraded roll, no challengers). Originality comes from the system and the brand mark, not from styling tricks.\n\nOne token set and one component library are expressed through four live-switchable shell styles: **Dock** (default), **Taskbar**, **Shelf** and **Activities**. Styles change only geometry and placement (bar position and height, control side and shape, window and panel radius). Colour, type, spacing, shadow and motion are shared. Every control works or is labelled as a concept.\n\nDensity is desktop-dense (13px default UI text, 32px controls) and relaxes on touch (44px targets under `pointer: coarse`). The shell renders inside a shadow root (`<jat-os>`), so it never touches the host WordPress theme and the theme never reaches in.",
+    "keyCharacteristics": [
+      "Cool slate neutrals plus a single JAT Blue accent; status colours only for status.",
+      "Inter for all UI, tabular numerals for clocks and numbers; JetBrains Mono only for paths, versions and shortcuts.",
+      "Flat surfaces inside windows; depth comes from window, menu and dock shadows.",
+      "Translucent chrome with a solid fallback, honouring `prefers-reduced-transparency` and a user toggle.",
+      "One system, four shell styles, three form factors (phone, tablet, desktop).",
+      "Authored SVG art throughout: logo, app tiles, icons, wallpapers."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Interactive state is always JAT Blue. No second accent, no gradients on UI, no glow.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tile-Only Rule",
+        "body": "App identity colours live on icon tiles and nowhere else. They never mark state, selection or category in the UI.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tertiary Floor Rule",
+        "body": "Light tertiary text is `#5f6878`, not the slate-500 step, because it must hold 4.6:1 on surface-3 and 5.0:1 on surface-2. Do not \"lighten\" it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-for-Machines Rule",
+        "body": "JetBrains Mono appears only for paths, URLs, versions, code and keyboard shortcuts, at 0.92em. Never for headings or labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Caps Rule",
+        "body": "Labels are sentence case. `--tracking-caps` exists in tokens but no shipped surface uses uppercase labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Float-Only Shadow Rule",
+        "body": "Shadows mark things that float (windows, menus, panels, dock, toasts). Content inside a window stays flat and tonal.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Solid Fallback Rule",
+        "body": "Every translucent surface has a solid equivalent that the user and the OS preference can force. Translucency never carries meaning.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do take every value from `assets/tokens.css` custom properties; update `tokens.json` in the same change.",
+      "Do express a new shell variation through the shell-style tokens (`--window-radius`, `--titlebar-height`, `--menu-radius`, `--panel-radius`, bar heights) rather than new colours or type.",
+      "Do use Interactive Blue (`#1f5ae6`) for fills behind white text and JAT Blue (`#2f6bff`) for brand, focus and selection.",
+      "Do give every translucent bar a solid fallback and respect `prefers-reduced-transparency`, `prefers-reduced-motion` and the in-app Reduce transparency toggle.",
+      "Do keep the shell inside its shadow root and ship styles as `tokens.css` → `components.css` → `shell.css`.",
+      "Do design each form factor on its own terms: full-screen apps on phone, maximised windows on tablet, free windows on desktop; 44px targets on coarse pointers.",
+      "Do draw new art as original SVG to the icon grid (24px, 1.75 stroke) or the app-tile template (64 units, 14.5 radius).",
+      "Do record provenance for rasters: `assets/screens/*.jpg` are Playwright captures of the example; all SVG art (logo, app tiles, icons, wallpapers) was authored for this project."
+    ],
+    "donts": [
+      "Don't use app identity colours for UI state, selection, categories or charts.",
+      "Don't add a second accent, gradients on UI surfaces, glowing borders or decorative glassmorphism; translucency is for bars, dock, menus and scrims only.",
+      "Don't lighten light-theme tertiary text below `#5f6878`.",
+      "Don't use Apple, Microsoft or Google names, logos or icons in any shell style.",
+      "Don't set uppercase labels or use mono for anything but paths, versions, code and shortcuts.",
+      "Don't add shadows to content inside windows; tone and dividers separate it.",
+      "Don't ship a control that does nothing; label concepts as concepts."
+    ]
+  }
+}

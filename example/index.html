@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JAT OS Example — demo website with OS mode</title>
+<meta name="description" content="Interactive JAT OS prototype: a demo website that switches into a browser desktop with the Craft apps, four shell styles, windows, launcher and settings.">
+<meta name="theme-color" content="#f8f9fb">
+<link rel="icon" href="../assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="modulepreload" href="dist/os.js">
+<style>
+  /* ---- Demo WordPress theme ----
+     Deliberately NOT the JAT OS design system: it stands in for whatever theme a site already runs,
+     to show that OS mode leaves the theme alone (the shell renders inside a shadow root). */
+  :root { --site-ink: #1d2320; --site-muted: #56605b; --site-paper: #fbfbf8; --site-line: #dfe3dc; --site-accent: #1f6f4a; --site-accent-ink: #ffffff; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--site-paper); color: var(--site-ink); font: 17px/1.65 Georgia, "Times New Roman", serif; -webkit-font-smoothing: antialiased; }
+  html.jat-os-active, html.jat-os-active body { overflow: hidden; }
+  a { color: var(--site-accent); text-underline-offset: 0.18em; }
+  ::selection { background: #cfe7da; }
+  :focus-visible { outline: 3px solid #1f6f4a; outline-offset: 2px; }
+  .demo-note { background: #1d2320; color: #e8ece9; font: 500 13px/1.4 system-ui, sans-serif; padding: 10px 20px; text-align: center; }
+  .demo-note a { color: #9fd8bb; }
+  .site-head { max-width: 1080px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--site-line); }
+  .site-title { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: var(--site-ink); text-decoration: none; }
+  .site-nav { display: flex; gap: 22px; font: 500 15px system-ui, sans-serif; }
+  .site-nav a { color: var(--site-ink); text-decoration: none; }
+  .site-nav a:hover { color: var(--site-accent); text-decoration: underline; }
+  main { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .intro { padding: 72px 0 56px; max-width: 760px; }
+  .intro h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 20px; font-weight: 700; }
+  .intro p { font-size: 20px; color: var(--site-muted); margin: 0 0 28px; max-width: 60ch; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 4px; border: 2px solid var(--site-accent); font: 600 15px system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+  .btn-solid { background: var(--site-accent); color: var(--site-accent-ink); }
+  .btn-line { background: transparent; color: var(--site-accent); margin-left: 8px; }
+  section { padding: 48px 0; border-top: 1px solid var(--site-line); }
+  h2 { font-size: 30px; letter-spacing: -0.01em; margin: 0 0 12px; }
+  .lede { color: var(--site-muted); margin: 0 0 28px; max-width: 62ch; }
+  .apps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); border-top: 1px solid var(--site-line); }
+  .apps li { padding: 20px 20px 22px 0; border-bottom: 1px solid var(--site-line); display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+  .apps img { width: 44px; height: 44px; border-radius: 10px; }
+  .apps strong { display: block; font-size: 19px; }
+  .apps span { display: block; color: var(--site-muted); font-size: 15px; }
+  .apps a { font: 500 14px system-ui, sans-serif; }
+  .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 40px; counter-reset: s; padding: 0; margin: 0; list-style: none; }
+  .how li { counter-increment: s; padding: 4px 0; }
+  .how li::before { content: counter(s) ". "; font-weight: 700; color: var(--site-accent); }
+  footer { max-width: 1080px; margin: 48px auto 0; padding: 28px 24px 120px; border-top: 1px solid var(--site-line); color: var(--site-muted); font: 14px/1.6 system-ui, sans-serif; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  /* ---- The OS-mode toggle: the only UI the plugin injects into a theme page. ---- */
+  #jat-toggle {
+    position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 2147483001;
+    display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px 0 12px;
+    border: 1px solid rgb(21 24 30 / 0.12); border-radius: 999px; background: #15181e; color: #fff;
+    font: 600 14px/1 "Inter", system-ui, sans-serif; letter-spacing: -0.005em; cursor: pointer;
+    box-shadow: 0 10px 28px rgb(14 16 20 / 0.28), 0 2px 6px rgb(14 16 20 / 0.18);
+    transition: transform 140ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 140ms linear;
+  }
+  #jat-toggle:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgb(14 16 20 / 0.32), 0 2px 6px rgb(14 16 20 / 0.18); }
+  #jat-toggle:focus-visible { outline: 3px solid #7fa4ff; outline-offset: 3px; }
+  #jat-toggle img { width: 26px; height: 26px; }
+  html.jat-os-active #jat-toggle { display: none; }
+  @media (prefers-reduced-motion: reduce) { #jat-toggle { transition: none; } html { scroll-behavior: auto; } }
+  @media (max-width: 600px) { .btn-line { margin: 10px 0 0; } .intro { padding: 44px 0 36px; } }
+</style>
+</head>
+<body>
+  <div class="demo-note">Demo website. It stands in for any WordPress theme. JAT OS runs on top of it without changing it. <a href="../">Project overview</a></div>
+  <header class="site-head">
+    <a class="site-title" href="#top">Jeremy Anderson Tech</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="#apps">Apps</a>
+      <a href="#os">JAT OS</a>
+      <a href="../brandbook/">Brand book</a>
+    </nav>
+  </header>
+  <main id="top">
+    <div class="intro">
+      <h1>Browser apps for people who make things.</h1>
+      <p>VectorCraft, PhotoCraft, FigCraft and PdfCraft run in any modern browser. Open them one at a time here, or switch this site into JAT OS and use them side by side.</p>
+      <a class="btn btn-solid" href="#os" data-enter-os>Enter JAT OS</a>
+      <a class="btn btn-line" href="#apps">See the apps</a>
+    </div>
+
+    <section id="apps" aria-labelledby="apps-h">
+      <h2 id="apps-h">The Craft apps</h2>
+      <p class="lede">Each app is its own progressive web app with its own files and settings. They open in a normal tab from here.</p>
+      <ul class="apps">
+        <li><img src="../assets/apps/vectorcraft.svg" alt=""><div><strong>VectorCraft</strong><span>Vector illustration and paths.</span><a href="https://cptnope.github.io/vectorcraft/" target="_blank" rel="noopener">Open VectorCraft</a></div></li>
+        <li><img src="../assets/apps/photocraft.svg" alt=""><div><strong>PhotoCraft</strong><span>Photo editing and adjustments.</span><a href="https://cptnope.github.io/photocraft/" target="_blank" rel="noopener">Open PhotoCraft</a></div></li>
+        <li><img src="../assets/apps/figcraft.svg" alt=""><div><strong>FigCraft</strong><span>Interface and layout design.</span><a href="https://cptnope.github.io/figcraft/" target="_blank" rel="noopener">Open FigCraft</a></div></li>
+        <li><img src="../assets/apps/pdfcraft.svg" alt=""><div><strong>PdfCraft</strong><span>Working with PDF documents.</span><a href="https://cptnope.github.io/pdfcraft/" target="_blank" rel="noopener">Open PdfCraft</a></div></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="os-h">
+      <h2 id="os-h">Switch to JAT OS</h2>
+      <p class="lede">JAT OS turns this page into a desktop: windows you can drag, snap and resize, a launcher, notifications and settings. The website stays exactly as it is underneath.</p>
+      <ol class="how">
+        <li>Press <strong>Enter JAT OS</strong>, at the bottom right of every page.</li>
+        <li>Open apps from the dock, or press Ctrl + Space to search.</li>
+        <li>Choose Dock, Taskbar, Shelf or Activities in Settings.</li>
+        <li>Choose <strong>Exit to website</strong>, or press your browser’s Back button, to return here.</li>
+      </ol>
+    </section>
+  </main>
+  <footer>
+    <span>© Jeremy Anderson Tech</span>
+    <span>JAT OS interactive prototype 0.1</span>
+  </footer>
+
+  <button id="jat-toggle" type="button" aria-pressed="false" aria-controls="jat-os">
+    <img src="../assets/logo/jat-os-app-icon.svg" alt="">Enter JAT OS
+  </button>
+  <script type="module" src="dist/main.js"></script>
+</body>
+</html>

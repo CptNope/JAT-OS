@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512" role="img" aria-label="JAT OS"><title>JAT OS</title><rect width="64" height="64" rx="14.5" fill="#15181E"/><g transform="translate(12.8 12.8) scale(0.6)"><defs><mask id="tk" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+<rect width="64" height="64" fill="#fff"/><rect x="1" y="17" width="46" height="42" rx="11" fill="#000"/></mask></defs>
+<rect x="20.5" y="4.5" width="39" height="35" rx="8" fill="none" stroke="#7FA4FF" stroke-width="5" mask="url(#tk)"/>
+<path d="M4 28a8 8 0 0 1 8-8h24a8 8 0 0 1 8 8z" fill="#7FA4FF"/>
+<path d="M4 31.5h40V52a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8z" fill="#7FA4FF"/></g></svg>
