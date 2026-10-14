@@ -1,11 +1,11 @@
 const byId=id=>document.getElementById(id);
 const root=byId('app'),stage=byId('playStage'),frame=byId('gameFrame');
 const labels={'2048':'Puzzle','snake':'Arcade','minesweeper':'Puzzle','pong':'Arcade','breakout':'Arcade','memory':'Puzzle','connect4':'Strategy','block-stack':'Puzzle'};
-const keys={favorite:'jat-arcade:favorites:v1',history:'jat-arcade:history:v1',scores:'jat-arcade:scores:v1'};
+const keys={favorite:'jat-arcade:favorites:v1',recentIds:'jat-arcade:recentIds:v1',scores:'jat-arcade:scores:v1'};
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
 const save=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}};
 let apps=[],filter='All',query='',active=null;
-let favorites=read(keys.favorite,[]),history=read(keys.history,[]);
+let favorites=read(keys.favorite,[]),recentIds=read(keys.recentIds,[]);
 const ownedURL=url=>{try{let u=new URL(url);return u.origin===location.origin&&u.pathname.startsWith('/JAT-OS/arcade/')}catch{return false}};
 const getId=a=>a.id.split('.').pop().replace(/^arcade-/,'');
 const category=a=>labels[getId(a)]||'Featured';
@@ -19,7 +19,7 @@ async function load(){
 const groups=['All','Arcade','Puzzle','Strategy','Favorites'];
 function drawFilters(){byId('filters').replaceChildren(...groups.map(label=>{let b=document.createElement('button');b.className='chip';b.textContent=label;b.type='button';b.setAttribute('aria-pressed',String(filter===label));b.onclick=()=>{filter=label;drawFilters();draw()};return b}))}
 function filtered(){let items=apps.filter(a=>(filter==='All'||filter==='Favorites'&&favorites.includes(a.id)||category(a)===filter)&& (a.name+' '+a.description).toLowerCase().includes(query));
- let sort=byId('sort').value;if(sort==='recent')items.sort((a,b)=>history.indexOf(b.id)-history.indexOf(a.id));else if(sort==='az')items.sort((a,b)=>a.name.localeCompare(b.name));return items}
+ let sort=byId('sort').value;if(sort==='recent')items.sort((a,b)=>recentIds.indexOf(b.id)-recentIds.indexOf(a.id));else if(sort==='az')items.sort((a,b)=>a.name.localeCompare(b.name));return items}
 function card(a){
  let el=document.createElement('article');el.className='game-card';let thumb=document.createElement('button');thumb.className='cover';thumb.type='button';thumb.style.setProperty('--cover',a.icon.color||'#354a78');thumb.setAttribute('aria-label','Play '+a.name);
  let img=document.createElement('img');img.src=new URL('../'+a.icon.src,location.href).href;img.alt='';img.loading='lazy';thumb.append(img);
@@ -32,14 +32,14 @@ function card(a){
  let fav=document.createElement('button');fav.className='favorite';fav.type='button';fav.textContent=favorites.includes(a.id)?'★':'☆';fav.title='Toggle favorite';fav.setAttribute('aria-pressed',String(favorites.includes(a.id)));fav.setAttribute('aria-label','Favorite '+a.name);fav.onclick=()=>{favorites=favorites.includes(a.id)?favorites.filter(i=>i!==a.id):[...favorites,a.id];save(keys.favorite,favorites);draw()};
  actions.append(play,fav);body.append(type,title,desc,meta,actions);el.append(thumb,body);return el
 }
-function draw(){let items=filtered();byId('games').replaceChildren(...items.map(card));byId('empty').hidden=!!items.length;byId('libraryCount').textContent=items.length+' of '+apps.length+' games';const recent=apps.find(a=>a.id===history[0])||apps.find(a=>getId(a)==='2048')||apps[0];if(recent){let b=byId('continueButton');b.textContent=(history.length?'Continue ':'Play ')+recent.name+' ↗';b.onclick=()=>openGame(recent)}}
-function openGame(a){active=a;history=[a.id,...history.filter(id=>id!==a.id)].slice(0,25);save(keys.history,history);
+function draw(){let items=filtered();byId('games').replaceChildren(...items.map(card));byId('empty').hidden=!!items.length;byId('libraryCount').textContent=items.length+' of '+apps.length+' games';const recent=apps.find(a=>a.id===recentIds[0])||apps.find(a=>getId(a)==='2048')||apps[0];if(recent){let b=byId('continueButton');b.textContent=(recentIds.length?'Continue ':'Play ')+recent.name+' ↗';b.onclick=()=>openGame(recent)}}
+function openGame(a){active=a;recentIds=[a.id,...recentIds.filter(id=>id!==a.id)].slice(0,25);save(keys.recentIds,recentIds);
  byId('stageTitle').textContent=a.name;byId('stageIcon').src=new URL('../'+a.icon.src,location.href).href;
  byId('stageHint').textContent=a.local?'Click the game for keyboard and controller input':'External app · controls vary';
  byId('externalGame').href=a.launch.url;frame.src=a.launch.url;frame.title=a.name;stage.hidden=false;root.hidden=true;document.title=a.name+' — JAT Arcade';
- history.replaceState({jatArcade:a.id},'','#play='+encodeURIComponent(getId(a)));byId('closeGame').focus();
+ window.history.replaceState({jatArcade:a.id},'','#play='+encodeURIComponent(getId(a)));byId('closeGame').focus();
 }
-function closeGame(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});frame.removeAttribute('src');stage.hidden=true;root.hidden=false;active=null;document.title='JAT Arcade — Jeremy Anderson Tech';history.replaceState({},'','#');draw();byId('search').focus()}
+function closeGame(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});frame.removeAttribute('src');stage.hidden=true;root.hidden=false;active=null;document.title='JAT Arcade — Jeremy Anderson Tech';window.history.replaceState({},'','#');draw();byId('search').focus()}
 byId('closeGame').onclick=closeGame;
 byId('reloadGame').onclick=()=>{if(active)frame.src=active.launch.url};
 byId('fullGame').onclick=()=>{if(!document.fullscreenElement)stage.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.().catch(()=>{})};
