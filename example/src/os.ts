@@ -334,7 +334,7 @@ export class JatOS extends HTMLElement implements OSApi {
 
   private renderTaskbar(): void {
     const center = h('div', { class: 'tb-center' },
-      h('button', { class: 'bar-app bar-app--start', 'aria-label': 'Start', 'data-tip': 'Start', onclick: () => this.togglePanel('launcher') },
+      h('button', { class: 'bar-app bar-app--start', 'aria-label': 'Start', 'aria-expanded': String(this.panel === 'launcher'), 'data-tip': 'Start', onclick: () => this.togglePanel('launcher') },
         h('img', { src: `${ASSETS}logo/jat-os-mark.svg`, alt: '', width: 24, height: 24 })),
       h('button', { class: 'tb-search', onclick: () => this.togglePanel('launcher', false, true) }, icon('search', 'jat-icon jat-icon--sm'), h('span', {}, 'Search')),
       ...this.shellApps().map((a) => this.appButton(a, 28)));
@@ -417,9 +417,11 @@ export class JatOS extends HTMLElement implements OSApi {
 
   private renderDesktop(): void {
     this.desktop.replaceChildren();
-    const items = this.apps.filter((a) => a.kind === 'web').concat(this.app('files')!);
+    const shortcuts = ['jat-arcade', 'vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'gods-eye-lite', 'chronos-and-canon', 'files'];
+    const items = shortcuts.flatMap(id => { const app = this.app(id); return app ? [app] : []; });
     for (const a of items) {
-      const b = h('button', { class: 'jat-desk-icon', role: 'listitem', 'aria-selected': 'false', 'data-app': a.id }, tile(a.icon, 52), h('span', {}, a.name));
+      const b = h('button', { class: 'jat-desk-icon', role: 'listitem', title: a.name, 'aria-label': a.name,
+        'aria-selected': 'false', 'data-app': a.id }, tile(a.icon, 48), h('span', {}, a.name));
       b.addEventListener('click', () => this.selectDesktop(b));
       b.addEventListener('dblclick', () => this.launch(a.id));
       b.addEventListener('keydown', (e) => { if (e.key === 'Enter') this.launch(a.id); });
@@ -447,7 +449,7 @@ export class JatOS extends HTMLElement implements OSApi {
     this.panel = p;
     this.panelLayer.replaceChildren();
     const scrim = h('div', { class: `panel-scrim panel-scrim--${p}`, onclick: () => this.closePanel() });
-    const el = p === 'launcher' ? this.launcherPanel() : p === 'quick' ? this.quickPanel() : p === 'notifications' ? this.notifPanel()
+    const el = p === 'launcher' ? (this.prefs.shell === 'taskbar' && this.form() !== 'phone' ? this.taskbarStartPanel() : this.launcherPanel()) : p === 'quick' ? this.quickPanel() : p === 'notifications' ? this.notifPanel()
       : p === 'overview' ? this.overviewPanel() : this.switcherPanel();
     el.classList.add('os-panel', `os-panel--${p}`);
     this.panelLayer.append(scrim, el);
@@ -482,6 +484,94 @@ export class JatOS extends HTMLElement implements OSApi {
     ];
     if (!query) return [];
     return items.filter((i) => (i.label + ' ' + i.meta).toLowerCase().includes(query)).slice(0, 8);
+  }
+
+
+  private taskbarStartPanel(): HTMLElement {
+    const input = h('input', { class: 'jat-input start-search-input', type: 'search',
+      placeholder: 'Search apps, games, and settings', 'aria-label': 'Search apps and games', autocomplete: 'off', spellcheck: 'false' });
+    const content = h('div', { class: 'start-scroll' });
+    const start = h('div', { class: 'launcher start-menu', role: 'dialog', 'aria-label': 'JAT OS Start menu' });
+    let showAll = false;
+
+    const openApp = (app: AppDef) => this.launch(app.id);
+    const appTile = (app: AppDef) => h('button', { class: 'start-app', title: app.description || app.name, onclick: () => openApp(app),
+      oncontextmenu: (e: Event) => { e.preventDefault(); this.appMenu(app, e.currentTarget as HTMLElement, e as MouseEvent); } },
+      tile(app.icon, 42), h('span', {}, app.name));
+    const appRow = (app: AppDef) => h('button', { class: 'start-app-row', onclick: () => openApp(app) },
+      tile(app.icon, 34), h('span', { class: 'start-app-text' },
+        h('strong', {}, app.name), h('small', {}, app.kind === 'system' ? 'System' : app.category.replace(/-/g, ' '))),
+      icon('chevron-right', 'jat-icon jat-icon--sm'));
+    const favorites = ['jat-arcade', ...this.prefs.pinned, 'gods-eye-lite', 'chronos-and-canon', 'files', 'settings']
+      .filter((id, i, arr) => arr.indexOf(id) === i)
+      .flatMap(id => { const app = this.app(id); return app ? [app] : []; }).slice(0, 12);
+    const recent = this.prefs.session.slice().reverse()
+      .flatMap(entry => { const app = this.app(entry.appId); return app && app.id !== 'welcome' ? [app] : []; })
+      .filter((app, i, arr) => arr.findIndex(other => other.id === app.id) === i).slice(0, 3);
+    const recommendations = recent.length ? recent : ['jat-arcade', 'gods-eye-lite', 'app-manager']
+      .flatMap(id => { const app = this.app(id); return app ? [app] : []; });
+
+    const draw = () => {
+      content.replaceChildren();
+      const query = input.value.trim().toLowerCase();
+      if (query) {
+        const found = this.apps.filter(app => (app.name + ' ' + app.description + ' ' + app.category).toLowerCase().includes(query))
+          .sort((a, b) => a.name.localeCompare(b.name));
+        content.append(h('div', { class: 'start-section-head' },
+          h('h2', {}, 'Search results'), h('span', { class: 'start-muted' }, String(found.length) + ' matches')));
+        if (found.length) content.append(h('div', { class: 'start-all-list' }, ...found.map(appRow)));
+        else content.append(h('p', { class: 'start-empty' }, 'No matching apps. Try “Arcade”, “PhotoCraft”, or “Settings”.'));
+        return;
+      }
+      if (showAll) {
+        const back = h('button', { class: 'start-text-button', onclick: () => { showAll = false; draw(); } },
+          icon('chevron-left', 'jat-icon jat-icon--sm'), 'Pinned');
+        content.append(h('div', { class: 'start-section-head' }, h('h2', {}, 'All apps'), back));
+        content.append(h('div', { class: 'start-all-list' },
+          ...this.apps.slice().sort((a, b) => a.name.localeCompare(b.name)).map(appRow)));
+        return;
+      }
+      const all = h('button', { class: 'start-text-button', onclick: () => { showAll = true; draw(); } },
+        'All apps', icon('chevron-right', 'jat-icon jat-icon--sm'));
+      content.append(h('div', { class: 'start-section-head' }, h('h2', {}, 'Pinned'), all));
+      content.append(h('div', { class: 'start-pinned-grid' }, ...favorites.map(appTile)));
+      content.append(h('div', { class: 'start-section-head start-second-section' },
+        h('h2', {}, recent.length ? 'Continue working' : 'Recommended'),
+        h('span', { class: 'start-muted' }, recent.length ? 'Your open workspace' : 'Explore JAT OS')));
+      content.append(h('div', { class: 'start-recommended' }, ...recommendations.map(appRow)));
+    };
+
+    input.addEventListener('input', draw);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && input.value.trim()) {
+        const q = input.value.trim().toLowerCase();
+        const app = this.apps.slice().sort((a, b) => a.name.localeCompare(b.name))
+          .find(a => (a.name + ' ' + a.description + ' ' + a.category).toLowerCase().includes(q));
+        if (app) { e.preventDefault(); openApp(app); }
+      } else if (e.key === 'ArrowDown') {
+        const first = content.querySelector('button');
+        if (first) { e.preventDefault(); first.focus(); }
+      }
+    });
+    const header = h('div', { class: 'start-header' },
+      h('div', { class: 'start-brand' },
+        h('img', { src: ASSETS + 'logo/jat-os-mark.svg', width: 28, height: 28, alt: '' }),
+        h('div', {}, h('strong', {}, 'JAT OS'), h('small', {}, 'Your workspace, all in one place'))),
+      h('span', { class: 'start-header-tag' }, 'DESKTOP'));
+    const search = h('div', { class: 'jat-search start-search' },
+      icon('search', 'jat-icon jat-icon--sm'), input);
+    const footer = h('div', { class: 'start-footer' },
+      h('div', { class: 'start-profile' },
+        h('span', { class: 'avatar', 'aria-hidden': 'true' }, icon('user', 'jat-icon jat-icon--sm')),
+        h('div', {}, h('strong', {}, 'Guest desktop'), h('small', {}, 'Local preferences'))),
+      h('div', { class: 'start-footer-actions' },
+        h('button', { class: 'start-footer-button', title: 'Settings', 'aria-label': 'Open Settings', onclick: () => this.launch('settings') },
+          icon('settings', 'jat-icon jat-icon--sm')),
+        h('button', { class: 'start-footer-button', title: 'Return to website', 'aria-label': 'Exit to website', onclick: () => this.exit() },
+          icon('exit', 'jat-icon jat-icon--sm'))));
+    start.append(header, search, content, footer);
+    draw();
+    return start;
   }
 
   private launcherPanel(): HTMLElement {
