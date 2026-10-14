@@ -1,7 +1,7 @@
 {
   "$schema": "./manifest.schema.json",
   "registryVersion": 1,
-  "note": "Demonstration registry for the JAT OS example. Descriptions are summaries from each app's name and should be confirmed by the app owner; versions are null because the apps do not declare one yet.",
+  "note": "Demonstration registry of independently hosted public applications. Verify embedding, mobile input, and offline support per app; no shared permissions or storage are implied.",
   "apps": [
     {
       "id": "com.jeremyandersontech.vectorcraft",
@@ -186,6 +186,186 @@
         "url": "https://github.com/CptNope"
       },
       "source": "user-owned PWA on GitHub Pages"
+    },
+    {
+      "id": "com.jeremyandersontech.cytoscape",
+      "name": "Cytoscape: Immune Defense",
+      "shortName": "Cytoscape: Immun",
+      "description": "Immune-system strategy game",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/cytoscape.svg",
+        "color": "#8B47BF"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/Cytoscape-Immune-Defense/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/Cytoscape-Immune-Defense/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 420,
+        "preferredWidth": 1200,
+        "preferredHeight": 800,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/Cytoscape-Immune-Defense/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "Owned GitHub Pages application; embed/mobile and offline behavior require testing"
+    },
+    {
+      "id": "com.jeremyandersontech.grand-royale",
+      "name": "Grand Royale",
+      "shortName": "Grand Royale",
+      "description": "Play-money casino simulation and odds experiments",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/grand-royale.svg",
+        "color": "#B17B3B"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/Grand-Royale-Casino-Simulator/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/Grand-Royale-Casino-Simulator/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 420,
+        "preferredWidth": 1200,
+        "preferredHeight": 800,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/Grand-Royale-Casino-Simulator/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "Owned GitHub Pages application; embed/mobile and offline behavior require testing"
+    },
+    {
+      "id": "com.jeremyandersontech.gods-eye-lite",
+      "name": "God's Eye Lite",
+      "shortName": "God's Eye Lite",
+      "description": "Interactive globe and environmental exploration",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/gods-eye-lite.svg",
+        "color": "#237A80"
+      },
+      "category": "exploration",
+      "launch": {
+        "url": "https://cptnope.github.io/gods-eye-lite/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/gods-eye-lite/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 420,
+        "preferredWidth": 1280,
+        "preferredHeight": 820,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/gods-eye-lite/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "Owned GitHub Pages application; embed/mobile and offline behavior require testing"
+    },
+    {
+      "id": "com.jeremyandersontech.chronos-and-canon",
+      "name": "Chronos & Canon",
+      "shortName": "Chronos & Canon",
+      "description": "Interactive comparative archive of ancient texts",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/chronos-and-canon.svg",
+        "color": "#7958A6"
+      },
+      "category": "research",
+      "launch": {
+        "url": "https://cptnope.github.io/Chronos-and-Canon/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/Chronos-and-Canon/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 420,
+        "preferredWidth": 1120,
+        "preferredHeight": 760,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/Chronos-and-Canon/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "Owned GitHub Pages application; embed/mobile and offline behavior require testing"
     }
   ]
 }
