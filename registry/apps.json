@@ -498,6 +498,226 @@
         "url": "https://github.com/CptNope/JAT-OS"
       },
       "source": "Original self-contained HTML/CSS/JavaScript JAT Arcade mini-game"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-pong",
+      "name": "Pong",
+      "shortName": "Pong",
+      "description": "Play classic paddle tennis against the computer",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-pong.svg",
+        "color": "#5CC9BA"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/pong/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/pong/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 670,
+        "preferredHeight": 670,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original browser game in JAT OS repository"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-breakout",
+      "name": "Breakout",
+      "shortName": "Breakout",
+      "description": "Bounce a ball to smash colorful bricks",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-breakout.svg",
+        "color": "#EEA265"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/breakout/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/breakout/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 670,
+        "preferredHeight": 710,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original browser game in JAT OS repository"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-memory",
+      "name": "Memory Match",
+      "shortName": "Memory Match",
+      "description": "Reveal matching cards in a concentration puzzle",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-memory.svg",
+        "color": "#987AE7"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/memory/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/memory/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 600,
+        "preferredHeight": 650,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original browser game in JAT OS repository"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-connect4",
+      "name": "Connect Four",
+      "shortName": "Connect Four",
+      "description": "Outsmart a computer opponent to connect four discs",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-connect4.svg",
+        "color": "#5B8BD5"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/connect4/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/connect4/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 670,
+        "preferredHeight": 690,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original browser game in JAT OS repository"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-block-stack",
+      "name": "Block Stack",
+      "shortName": "Block Stack",
+      "description": "Fit falling blocks together and clear full lines",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-block-stack.svg",
+        "color": "#A786E5"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/block-stack/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/block-stack/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 530,
+        "preferredHeight": 800,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original browser game in JAT OS repository"
     }
   ]
 }
