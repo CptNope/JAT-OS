@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15181e">
+  <meta name="description" content="JAT Arcade: play original browser games inside JAT OS.">
+  <title>JAT Arcade — Jeremy Anderson Tech</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+  <link rel="stylesheet" href="./hub.css">
+  <script type="module" src="./hub.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="../example/" target="_blank" rel="noopener" aria-label="JAT OS desktop">
+        <img src="../assets/logo/jat-os-mark.svg" width="30" height="30" alt="">
+        <span><strong>JAT<span class="accent"> Arcade</span></strong><small>Part of JAT OS</small></span>
+      </a>
+      <div class="topbar-right">
+        <span class="controller-state" id="controllerStatus" aria-live="polite">⌘ Keyboard & touch</span>
+        <button class="icon-button" id="helpButton" type="button" aria-label="Controller and game controls" title="Controls">?</button>
+      </div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-content">
+          <p class="eyebrow"><span class="dot"></span> YOUR CREATIVE PLAYGROUND</p>
+          <h1 id="heroTitle">Play something <em>great.</em></h1>
+          <p>Classic games, fresh experiments, one desktop. Launch instantly, play fullscreen, and pick up where you left off.</p>
+          <div class="hero-actions">
+            <button id="continueButton" class="button primary" type="button">Play 2048 <span aria-hidden="true">↗</span></button>
+            <span id="heroStats" class="hero-meta">Your games, your browser.</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-grid"><i>2</i><i>4</i><i>8</i><i>16</i><i>32</i><i>64</i><i>128</i><i>256</i><i>★</i></div>
+        </div>
+      </section>
+      <section class="library" aria-label="Game library">
+        <div class="library-heading"><div><p class="eyebrow">EXPLORE THE LIBRARY</p><h2>JAT Arcade</h2><p id="libraryCount" class="muted">Loading games…</p></div>
+          <label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a game…" autocomplete="off" aria-label="Search games"></label>
+        </div>
+        <div class="filters" aria-label="Filter games">
+          <div class="chip-row" id="filters" role="group" aria-label="Game categories"></div>
+          <label class="sort">Sort <select id="sort" aria-label="Sort games"><option value="featured">Featured</option><option value="recent">Recently played</option><option value="az">A–Z</option></select></label>
+        </div>
+        <div id="games" class="game-grid" aria-live="polite"></div>
+        <div id="empty" class="empty" hidden><h3>No games found</h3><p>Try a different search or category.</p><button id="clearFilters" class="button" type="button">Show all games</button></div>
+      </section>
+      <footer>JAT OS · Games run independently. Scores and favorites are stored locally in your browser. <a href="https://github.com/CptNope/JAT-OS" target="_blank" rel="noopener">Source on GitHub ↗</a></footer>
+    </main>
+  </div>
+  <section id="playStage" class="play-stage" aria-label="Game player" hidden>
+    <div class="stage-toolbar">
+      <button id="closeGame" class="button back" type="button" aria-label="Back to arcade">← <span>Arcade</span></button>
+      <div class="stage-game"><img id="stageIcon" src="../assets/apps/arcade-2048.svg" alt="" width="28" height="28"><div><strong id="stageTitle">Game</strong><small id="stageHint">Tap to focus, then play</small></div></div>
+      <div class="stage-tools">
+        <button id="reloadGame" class="icon-button" type="button" title="Restart game" aria-label="Restart game">↻</button>
+        <button id="fullGame" class="button" type="button" title="Fullscreen game">⛶ <span>Fullscreen</span></button>
+        <a id="externalGame" class="button" href="#" target="_blank" rel="noopener" title="Open game in a new tab">↗ <span>New tab</span></a>
+      </div>
+    </div>
+    <div class="stage-body"><iframe id="gameFrame" title="Game" allow="fullscreen; gamepad" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+  </section>
+  <dialog id="controlsDialog" aria-labelledby="controlsTitle"><h2 id="controlsTitle">How to play</h2><p>Most games accept keyboard, touch, or S Pen taps. Built-in games also support standard controllers when the browser exposes the Gamepad API.</p><p><strong>Gamepad:</strong> D-pad or left stick to move; A to select, start, or rotate; B to go back or restart in supported games. Click or tap inside the game first if the controller is not responding.</p><p><strong>Fullscreen:</strong> use the game toolbar. Press Escape to return when the browser is in fullscreen.</p><p>Your local score history isn't shared with WordPress accounts or other devices.</p><form method="dialog"><button class="button primary">Got it</button></form></dialog>
+</body>
+</html>
