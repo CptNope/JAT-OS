@@ -188,6 +188,51 @@
       "source": "user-owned PWA on GitHub Pages"
     },
     {
+      "id": "com.jeremyandersontech.jat-arcade",
+      "name": "JAT Arcade",
+      "shortName": "Arcade",
+      "description": "A dedicated gaming hub with game covers, categories, favorites, fullscreen play, high scores, and controller input.",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/jat-arcade.svg",
+        "color": "#4068C9"
+      },
+      "category": "media",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 440,
+        "preferredWidth": 1230,
+        "preferredHeight": 830,
+        "resizable": true,
+        "appThemeColor": "#15181e"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Built-in self-hosted JAT Arcade hub"
+    },
+    {
       "id": "com.jeremyandersontech.cytoscape",
       "name": "Cytoscape: Immune Defense",
       "shortName": "Cytoscape: Immun",
