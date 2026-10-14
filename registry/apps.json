@@ -366,6 +366,138 @@
         "url": "https://github.com/CptNope"
       },
       "source": "Owned GitHub Pages application; embed/mobile and offline behavior require testing"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-2048",
+      "name": "2048",
+      "shortName": "2048",
+      "description": "Combine tiles in a quick number puzzle.",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-2048.svg",
+        "color": "#DAA44A"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/2048/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/2048/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 570,
+        "preferredHeight": 680,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original self-contained HTML/CSS/JavaScript JAT Arcade mini-game"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-snake",
+      "name": "Snake",
+      "shortName": "Snake",
+      "description": "Collect food and dodge your growing tail.",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-snake.svg",
+        "color": "#36A47E"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/snake/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/snake/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 550,
+        "preferredHeight": 730,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original self-contained HTML/CSS/JavaScript JAT Arcade mini-game"
+    },
+    {
+      "id": "com.jeremyandersontech.arcade-minesweeper",
+      "name": "Minesweeper",
+      "shortName": "Minesweeper",
+      "description": "Reveal safe squares and flag hidden mines.",
+      "version": "1.0.0",
+      "icon": {
+        "src": "assets/apps/arcade-minesweeper.svg",
+        "color": "#487DBA"
+      },
+      "category": "arcade",
+      "launch": {
+        "url": "https://cptnope.github.io/JAT-OS/arcade/minesweeper/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/JAT-OS/arcade/minesweeper/"
+      },
+      "window": {
+        "minWidth": 340,
+        "minHeight": 420,
+        "preferredWidth": 570,
+        "preferredHeight": 750,
+        "resizable": true
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "none",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope/JAT-OS"
+      },
+      "source": "Original self-contained HTML/CSS/JavaScript JAT Arcade mini-game"
     }
   ]
 }
