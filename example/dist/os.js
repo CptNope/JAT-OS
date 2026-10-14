@@ -719,7 +719,7 @@ export class JatOS extends HTMLElement {
         const frame = h('iframe', {
             src: app.url, title: app.name, loading: 'eager',
             sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals',
-            allow: 'fullscreen; clipboard-read; clipboard-write', referrerpolicy: 'strict-origin-when-cross-origin',
+            allow: 'fullscreen; gamepad; clipboard-read; clipboard-write', referrerpolicy: 'strict-origin-when-cross-origin',
         });
         const fail = (kind) => {
             const st = kind === 'offline'
