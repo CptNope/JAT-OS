@@ -759,7 +759,7 @@ export class JatOS extends HTMLElement implements OSApi {
     const frame = h('iframe', {
       src: app.url!, title: app.name, loading: 'eager',
       sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals',
-      allow: 'fullscreen; clipboard-read; clipboard-write', referrerpolicy: 'strict-origin-when-cross-origin',
+      allow: 'fullscreen; gamepad; clipboard-read; clipboard-write', referrerpolicy: 'strict-origin-when-cross-origin',
     }) as HTMLIFrameElement;
     const fail = (kind: 'offline' | 'slow') => {
       const st = kind === 'offline'
