@@ -51,14 +51,14 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&active&&!document.f
 document.addEventListener('fullscreenchange',()=>{byId('fullGame').title=document.fullscreenElement?'Exit fullscreen':'Fullscreen game'});
 window.addEventListener('storage',e=>{if(e.key===keys.scores||e.key==='jat-2048-best'||e.key==='jat-snake-best')draw()});
 const buttonMapping=[{code:'ArrowUp',index:12},{code:'ArrowDown',index:13},{code:'ArrowLeft',index:14},{code:'ArrowRight',index:15},{code:'Enter',index:0},{code:'Escape',index:1},{code:' ',index:2}];
-const prev=new Map();let lastMove=0;
+const prev=new Map();
 function controllerTick(t){
  let gamepads=navigator.getGamepads?.()||[];let gp=[...gamepads].find(Boolean);byId('controllerStatus').textContent=gp?'🎮 '+gp.id.slice(0,24):'⌘ Keyboard & touch';
  if(gp&&active&&active.local){let btn=[...buttonMapping];
  const ax=gp.axes?.[0]||0,ay=gp.axes?.[1]||0;
  btn.forEach(b=>{let pressed=!!gp.buttons[b.index]?.pressed;if(b.code==='ArrowLeft'&&ax<-.6||b.code==='ArrowRight'&&ax>.6||b.code==='ArrowUp'&&ay<-.6||b.code==='ArrowDown'&&ay>.6)pressed=true;
  const k=b.code+'-'+gp.index;let was=prev.get(k)||false;
- if(pressed&&(!was||t-lastMove>170&&b.code.startsWith('Arrow'))){if(was)lastMove=t;frame.contentWindow?.postMessage({type:'jat-arcade:gamepad',key:b.code},location.origin)}
+ if(pressed!==was){lastMove=t;frame.contentWindow?.postMessage({type:'jat-arcade:gamepad',key:b.code,pressed},location.origin)}
  prev.set(k,pressed);
  })}else prev.clear();
  requestAnimationFrame(controllerTick)
