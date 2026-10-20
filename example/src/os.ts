@@ -773,6 +773,22 @@ export class JatOS extends HTMLElement implements OSApi {
     ]);
   }
 
+  /** Launch a FloraHearth PWA shortcut without replacing an existing garden window. */
+  private launchFloraSection(tab: 'planner' | 'crops' | 'calendar', label: string): void {
+    const base = this.app('florahearth');
+    if (!base || !base.url) return;
+    const url = new URL(base.url);
+    url.searchParams.set('tab', tab);
+    const target: AppDef = { ...base, id: `florahearth-${tab}`, name: `FloraHearth · ${label}`, url: url.href };
+    this.closePanel();
+    if (this.launchMode(base.id) === 'external') this.openExternal(target);
+    else {
+      const existing = this.wm.byApp(target.id)[0];
+      if (existing) { if (existing.workspace !== this.currentWorkspace) this.switchWorkspace(existing.workspace); this.wm.focus(existing); }
+      else this.openWindow(target);
+    }
+  }
+
   private appMenu(app: AppDef, anchor: HTMLElement, e?: MouseEvent): void {
     const pinned = this.prefs.pinned.includes(app.id);
     const wins = this.wm.byApp(app.id);
@@ -781,6 +797,13 @@ export class JatOS extends HTMLElement implements OSApi {
     this.menu(at, [
       { title: app.name },
       { label: wins.length ? 'Show window' : 'Open', icon: 'window', run: () => this.launch(app.id) },
+      ...(app.id === 'florahearth' ? [
+        'sep' as const,
+        { title: 'Open FloraHearth section' },
+        { label: 'Garden Planner', run: () => this.launchFloraSection('planner', 'Garden Planner') },
+        { label: 'Crop Library', run: () => this.launchFloraSection('crops', 'Crop Library') },
+        { label: 'Seasonal Calendar', run: () => this.launchFloraSection('calendar', 'Seasonal Calendar') },
+      ] : []),
       app.kind === 'web' ? { label: 'Open in a new tab', icon: 'external', run: () => this.openExternal(app) } : { title: '' },
       app.kind === 'web' ? { label: pinned ? 'Unpin' : 'Pin', icon: 'pin', run: () => this.togglePin(app.id) } : { title: '' },
       ...(wins.length ? ['sep' as const, { label: wins.length > 1 ? `Close ${wins.length} windows` : 'Close window', danger: true, run: () => wins.forEach((w) => this.wm.close(w)) }] : []),
