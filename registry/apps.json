@@ -464,6 +464,52 @@
       "source": "User-owned SoundCraft Rust/WebAssembly digital audio workstation PWA on GitHub Pages"
     },
     {
+      "id": "com.jeremyandersontech.lightcraft",
+      "name": "LightCraft",
+      "shortName": "LightCraft",
+      "description": "Organize and develop RAW photos with non-destructive editing, color grading, and adjustments.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/lightcraft.svg",
+        "color": "#D89017"
+      },
+      "category": "graphics",
+      "launch": {
+        "url": "https://cptnope.github.io/lightcraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/lightcraft/"
+      },
+      "window": {
+        "minWidth": 720,
+        "minHeight": 480,
+        "preferredWidth": 1240,
+        "preferredHeight": 800,
+        "resizable": true,
+        "appThemeColor": "#20201E"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/lightcraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "User-owned GitHub Pages LightCraft Rust/WebAssembly RAW photo editor PWA (fork of ArtCraft LightCraft)"
+    },
+    {
       "id": "com.jeremyandersontech.jat-arcade",
       "name": "JAT Arcade",
       "shortName": "Arcade",

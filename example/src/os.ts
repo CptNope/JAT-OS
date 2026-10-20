@@ -417,7 +417,7 @@ export class JatOS extends HTMLElement implements OSApi {
 
   private renderDesktop(): void {
     this.desktop.replaceChildren();
-    const shortcuts = ['jat-arcade', 'vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'wordcraft', 'gridcraft', 'deckcraft', 'designcraft', 'cadcraft', 'soundcraft', 'florahearth', 'gods-eye-lite', 'chronos-and-canon', 'files'];
+    const shortcuts = ['jat-arcade', 'vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'wordcraft', 'gridcraft', 'deckcraft', 'designcraft', 'cadcraft', 'soundcraft', 'lightcraft', 'florahearth', 'gods-eye-lite', 'chronos-and-canon', 'files'];
     const items = shortcuts.flatMap(id => { const app = this.app(id); return app ? [app] : []; });
     for (const a of items) {
       const b = h('button', { class: 'jat-desk-icon', role: 'listitem', title: a.name, 'aria-label': a.name,

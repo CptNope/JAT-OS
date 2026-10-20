@@ -5,7 +5,7 @@ export const DEFAULTS = {
     theme: 'auto',
     shell: 'dock',
     wallpaper: 'ridge',
-    pinned: ['vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'wordcraft', 'gridcraft', 'deckcraft', 'designcraft', 'cadcraft', 'soundcraft', 'florahearth'],
+    pinned: ['vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'wordcraft', 'gridcraft', 'deckcraft', 'designcraft', 'cadcraft', 'soundcraft', 'lightcraft', 'florahearth'],
     launchModes: {},
     dnd: false,
     showDesktopIcons: true,
