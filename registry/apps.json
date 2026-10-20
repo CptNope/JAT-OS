@@ -418,6 +418,52 @@
       "source": "User-owned CADCraft Rust/WebAssembly CAD PWA on GitHub Pages; dedicated mobile shell"
     },
     {
+      "id": "com.jeremyandersontech.soundcraft",
+      "name": "SoundCraft",
+      "shortName": "SoundCraft",
+      "description": "Multitrack audio editing, recording, mixing, MIDI and browser-based music production.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/soundcraft.svg",
+        "color": "#4E71B0"
+      },
+      "category": "audio",
+      "launch": {
+        "url": "https://cptnope.github.io/soundcraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/soundcraft/"
+      },
+      "window": {
+        "minWidth": 700,
+        "minHeight": 480,
+        "preferredWidth": 1220,
+        "preferredHeight": 790,
+        "resizable": true,
+        "appThemeColor": "#1e1f22"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/soundcraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "User-owned SoundCraft Rust/WebAssembly digital audio workstation PWA on GitHub Pages"
+    },
+    {
       "id": "com.jeremyandersontech.jat-arcade",
       "name": "JAT Arcade",
       "shortName": "Arcade",
