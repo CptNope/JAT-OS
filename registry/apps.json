@@ -372,6 +372,52 @@
       "source": "user-owned GitHub Pages PWA; independent Rust/WebAssembly editor"
     },
     {
+      "id": "com.jeremyandersontech.cadcraft",
+      "name": "CADCraft",
+      "shortName": "CADCraft",
+      "description": "2D CAD drafting with DWG/DXF drawing, layers, dimensions, and precision tools.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/cadcraft.svg",
+        "color": "#287C99"
+      },
+      "category": "design",
+      "launch": {
+        "url": "https://cptnope.github.io/cadcraft/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/cadcraft/"
+      },
+      "window": {
+        "minWidth": 700,
+        "minHeight": 480,
+        "preferredWidth": 1220,
+        "preferredHeight": 790,
+        "resizable": true,
+        "appThemeColor": "#22282F"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/cadcraft/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "User-owned CADCraft Rust/WebAssembly CAD PWA on GitHub Pages; dedicated mobile shell"
+    },
+    {
       "id": "com.jeremyandersontech.jat-arcade",
       "name": "JAT Arcade",
       "shortName": "Arcade",
