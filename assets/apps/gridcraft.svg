@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="GridCraft"><title>GridCraft</title>
+<rect width="64" height="64" rx="14.5" fill="#15815C"/><path d="M14.5 0H49.5A14.5 14.5 0 0 1 64 14.5V20H0V14.5A14.5 14.5 0 0 1 14.5 0z" fill="#fff" fill-opacity=".10"/>
+<rect x=".5" y=".5" width="63" height="63" rx="14" fill="none" stroke="#000" stroke-opacity=".10"/>
+<rect x="13" y="15" width="38" height="34" rx="4" fill="#fff"/><path d="M13 23h38" stroke="#15815C" stroke-width="3"/><path d="M25 23v26M38 23v26M13 35h38" stroke="#15815C" stroke-width="2.5"/><path d="M15.5 25.5h7v7h-7z" fill="#8BCFAD"/></svg>
