@@ -32,7 +32,7 @@ export const DEFAULTS: Prefs = {
   theme: 'auto',
   shell: 'dock',
   wallpaper: 'ridge',
-  pinned: ['vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'wordcraft', 'gridcraft', 'deckcraft'],
+  pinned: ['vectorcraft', 'photocraft', 'figcraft', 'pdfcraft', 'wordcraft', 'gridcraft', 'deckcraft', 'designcraft'],
   launchModes: {},
   dnd: false,
   showDesktopIcons: true,

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="DesignCraft"><title>DesignCraft</title>
+<rect width="64" height="64" rx="14.5" fill="#B64D9A"/><path d="M14.5 0H49.5A14.5 14.5 0 0 1 64 14.5V20H0V14.5A14.5 14.5 0 0 1 14.5 0z" fill="#fff" fill-opacity=".10"/>
+<rect x=".5" y=".5" width="63" height="63" rx="14" fill="none" stroke="#000" stroke-opacity=".10"/>
+<rect x="15" y="11" width="34" height="42" rx="3" fill="#FFF8FC"/>
+<rect x="19" y="16" width="26" height="9" rx="1.5" fill="#D58CBF"/>
+<rect x="19" y="29" width="11" height="12" rx="1" fill="#B64D9A"/>
+<g fill="none" stroke="#92517F" stroke-width="2.1" stroke-linecap="round">
+<path d="M34 31h11M34 36h11M34 41h9M19 46h26"/>
+</g></svg>
