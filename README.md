@@ -1,6 +1,6 @@
 # JAT OS
 
-A browser-based desktop that runs on top of a WordPress site, by Jeremy Anderson Tech. Visitors keep the normal website; anyone can switch into a desktop with windows, a launcher and the Craft apps (VectorCraft, PhotoCraft, FigCraft, PdfCraft, WordCraft, GridCraft, DeckCraft, DesignCraft).
+A browser-based desktop that runs on top of a WordPress site, by Jeremy Anderson Tech. Visitors keep the normal website; anyone can switch into a desktop with windows, a launcher and the Craft apps (VectorCraft, PhotoCraft, FigCraft, PdfCraft, WordCraft, GridCraft, DeckCraft, DesignCraft), plus FloraHearth for garden planning.
 
 **Live site:** https://cptnope.github.io/JAT-OS/
 

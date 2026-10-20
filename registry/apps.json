@@ -552,6 +552,52 @@
       "source": "Owned GitHub Pages application; embed/mobile and offline behavior require testing"
     },
     {
+      "id": "com.jeremyandersontech.florahearth",
+      "name": "FloraHearth",
+      "shortName": "FloraHearth",
+      "description": "Garden planning, crop guides, companion planting, seasonal tasks, harvests, and pantry tracking.",
+      "version": null,
+      "icon": {
+        "src": "assets/apps/florahearth.svg",
+        "color": "#10B981"
+      },
+      "category": "productivity",
+      "launch": {
+        "url": "https://cptnope.github.io/FloraHearth/",
+        "mode": "embedded",
+        "fallback": "external",
+        "scope": "https://cptnope.github.io/FloraHearth/"
+      },
+      "window": {
+        "minWidth": 640,
+        "minHeight": 420,
+        "preferredWidth": 1180,
+        "preferredHeight": 820,
+        "resizable": true,
+        "appThemeColor": "#0B1510"
+      },
+      "permissions": [],
+      "capabilities": {
+        "offline": "app-managed",
+        "serviceWorkerScope": "https://cptnope.github.io/FloraHearth/",
+        "bridge": null,
+        "pointer": [
+          "mouse",
+          "touch"
+        ],
+        "pen": "unverified"
+      },
+      "integration": {
+        "bridgeVersion": null,
+        "endpoints": []
+      },
+      "publisher": {
+        "name": "Jeremy Anderson Tech",
+        "url": "https://github.com/CptNope"
+      },
+      "source": "User-owned FloraHearth garden-planning PWA on GitHub Pages; embedded behavior should be verified in JAT OS"
+    },
+    {
       "id": "com.jeremyandersontech.chronos-and-canon",
       "name": "Chronos & Canon",
       "shortName": "Chronos & Canon",
